@@ -44,7 +44,7 @@ function BottomTabNavigator({ navigation }) {
 			/>
 			<Tab.Screen
 				name="Gallery"
-				component={ScoreScreen}
+				component={InterestsScreen}
 				options={{
 					tabBarLabel: 'Gallery',
 					tabBarIcon: () => <Entypo name="picasa" size={24} color="white" />

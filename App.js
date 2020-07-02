@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Dimensions } from 'react-native';
 import * as Font from 'expo-font';
@@ -7,6 +8,7 @@ import { AppLoading } from 'expo';
 import { Root } from 'native-base';
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
+import DrawerNavigator from './navigation/DrawerNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 import Splash from './screens/Splash';
 import OnBoarding from './screens/OnBoarding';
@@ -15,10 +17,12 @@ import Login from './screens/Login';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
 import SelectStylesScreen from './screens/SelectStyles';
+import CurrentScreen from './screens/AddTalent';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -49,7 +53,7 @@ export default class App extends React.Component {
 					{Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
 					<NavigationContainer>
 						<Stack.Navigator headerMode="none" initialRouteName="Splash">
-							<Stack.Screen name="Splash" component={Splash} />
+							<Stack.Screen name="Splash" component={CurrentScreen} />
 							<Stack.Screen name="OnBoarding" component={OnBoarding} />
 							<Stack.Screen name="Register" component={Register} />
 							<Stack.Screen name="Login" component={Login} />

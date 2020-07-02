@@ -20,6 +20,7 @@ function Interests() {
 						<Text style={styles.mainText}>Interests</Text>
 					</Body>
 				</Header>
+
 				<ScrollView style={[ cstyles.container, cstyles.padder ]}>
 					<View style={[ cstyles.row, cstyles.flexBetweeen ]}>
 						<TouchableOpacity onPress={() => setInterest(1)}>
@@ -27,7 +28,7 @@ function Interests() {
 								Create interest
 							</Text>
 						</TouchableOpacity>
-						<TouchableOpacity onPress={() => setInterest(0)}>
+						<TouchableOpacity onPress={() => setInterest(2)}>
 							<Text style={[ styles.buttonText, interest !== 1 && styles.activeButton ]}>
 								Choose interest
 							</Text>

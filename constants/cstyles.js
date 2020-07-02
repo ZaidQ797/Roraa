@@ -7,6 +7,29 @@ export default StyleSheet.create({
 	container: {
 		flex: 1
 	},
+	itemsCenter: {
+		alignItems: 'center'
+	},
+	flexCenter: {
+		justifyContent: 'center'
+	},
+	itemsEnd: {
+		alignItems: 'flex-end'
+	},
+	boxShadow: {
+		shadowColor: '#f5f5f5',
+		shadowOffset: {
+			width: 0,
+			height: 2
+		},
+		shadowOpacity: 0.23,
+		shadowRadius: 2.62,
+
+		elevation: 2
+	},
+	flexWrap: {
+		flexWrap: 'wrap'
+	},
 	center: {
 		justifyContent: 'center',
 		alignItems: 'center'
@@ -39,6 +62,12 @@ export default StyleSheet.create({
 		paddingRight: 5,
 		paddingLeft: 5
 	},
+	px_10: {
+		paddingHorizontal: 10
+	},
+	px_15: {
+		paddingHorizontal: 15
+	},
 	py_10: {
 		paddingTop: 10,
 		paddingBottom: 10
@@ -70,11 +99,23 @@ export default StyleSheet.create({
 		marginTop: 15,
 		marginBottom: 15
 	},
+	my_5: {
+		marginVertical: 5
+	},
 	ml_10: {
 		marginLeft: 10
 	},
 	mr_10: {
 		marginRight: 10
+	},
+	mb_10: {
+		marginBottom: 10
+	},
+	mb_15: {
+		marginBottom: 15
+	},
+	mb_20: {
+		marginBottom: 20
 	},
 	mx_10: {
 		marginLeft: 10,
@@ -213,5 +254,13 @@ export default StyleSheet.create({
 	testBorder: {
 		borderWidth: 1,
 		borderColor: 'red'
+	},
+	userContainer: {
+		width: 25,
+		height: 25,
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRadius: 100,
+		backgroundColor: '#e98180'
 	}
 });
