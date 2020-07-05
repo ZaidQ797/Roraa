@@ -1,6 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View, Dimensions } from 'react-native';
 import * as Font from 'expo-font';
@@ -17,12 +16,11 @@ import Login from './screens/Login';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
 import SelectStylesScreen from './screens/SelectStyles';
-import CurrentScreen from './screens/AddTalent';
+import CurrentScreen from './screens/Home';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
 const Stack = createStackNavigator();
-const Drawer = createDrawerNavigator();
 
 export default class App extends React.Component {
 	constructor(props) {
@@ -53,14 +51,14 @@ export default class App extends React.Component {
 					{Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
 					<NavigationContainer>
 						<Stack.Navigator headerMode="none" initialRouteName="Splash">
-							<Stack.Screen name="Splash" component={CurrentScreen} />
+							<Stack.Screen name="Splash" component={Splash} />
 							<Stack.Screen name="OnBoarding" component={OnBoarding} />
 							<Stack.Screen name="Register" component={Register} />
 							<Stack.Screen name="Login" component={Login} />
 							<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
 							<Stack.Screen name="ResetPassword" component={ResetPassword} />
 							<Stack.Screen name="Styles" component={SelectStylesScreen} />
-							<Stack.Screen name="Root" children={BottomTabNavigator} />
+							<Stack.Screen name="Root" children={DrawerNavigator} />
 						</Stack.Navigator>
 					</NavigationContainer>
 				</View>

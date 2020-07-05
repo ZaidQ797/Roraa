@@ -6,7 +6,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons';
 import GridView from './Grid';
 
-function Profile() {
+function Profile({ navigation }) {
 	const [ images, setImages ] = useState([
 		'a',
 		'b',
@@ -32,7 +32,7 @@ function Profile() {
 					<Entypo name="chevron-small-left" size={24} color="black" />
 				</Left>
 				<Right>
-					<TouchableOpacity>
+					<TouchableOpacity onPress={() => navigation.toggleDrawer()}>
 						<Ionicons name="ios-menu" size={24} color="black" />
 					</TouchableOpacity>
 				</Right>

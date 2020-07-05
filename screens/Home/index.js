@@ -5,27 +5,14 @@ import cstyle from '../../constants/cstyles';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import StarsList from './StarList';
-import { AntDesign, Entypo, Ionicons } from '@expo/vector-icons';
+import { Entypo, Ionicons } from '@expo/vector-icons';
+import styles from './styles';
+import TopStars from './TopStars';
+import HomeDiscover from './HomeDiscover';
+import World from './World';
 
 function Home({ navigation }) {
-	const [ list, setList ] = useState([
-		'a',
-		'b',
-		'c',
-		'd',
-		'e',
-		'f',
-		'g',
-		'h',
-		'i',
-		'j',
-		'k',
-		'l',
-		'm',
-		'n',
-		'p',
-		'q'
-	]);
+	const [ view, setView ] = useState('world');
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyle.container, cstyle.bg_white ]}>
@@ -34,56 +21,46 @@ function Home({ navigation }) {
 						<Entypo name="chevron-small-left" size={24} color="black" />
 					</Left>
 					<Right>
-						<TouchableOpacity>
+						<TouchableOpacity onPress={() => navigation.toggleDrawer()}>
 							<Ionicons name="ios-menu" size={24} color="black" />
 						</TouchableOpacity>
 					</Right>
 				</Header>
+				<View style={[ cstyle.px_20, styles.borderBottom ]}>
+					<View style={[ cstyle.row, cstyle.itemsCenter, cstyle.flexBetweeen, cstyle.mb_15 ]}>
+						<Text style={styles.headerText}>New Feed For You</Text>
+						<TouchableOpacity style={styles.headerButn}>
+							<Text style={styles.butnText}>NEW FEED</Text>
+						</TouchableOpacity>
+					</View>
+					<View style={[ cstyle.row, cstyle.itemsCenter, cstyle.flexBetweeen ]}>
+						<TouchableOpacity style={view === 'world' && styles.activeTab} onPress={() => setView('world')}>
+							<Text style={styles.tabText}>World</Text>
+						</TouchableOpacity>
+						<TouchableOpacity style={view === 'show' && styles.activeTab} onPress={() => setView('show')}>
+							<Text style={styles.tabText}>Show</Text>
+						</TouchableOpacity>
+						<TouchableOpacity
+							style={view === 'discover' && styles.activeTab}
+							onPress={() => setView('discover')}
+						>
+							<Text style={[ styles.tabText ]}>Discover</Text>
+						</TouchableOpacity>
+						<TouchableOpacity style={view === 'star' && styles.activeTab} onPress={() => setView('star')}>
+							<Text style={styles.tabText}>Top 200 Stars</Text>
+						</TouchableOpacity>
+					</View>
+				</View>
 				<ScrollView style={[ cstyle.container, cstyle.padder, { paddingTop: 0 } ]}>
-					<View style={cstyle.py_10}>
-						<Text style={styles.mainText}>Top 200 Stars</Text>
-					</View>
-					<View>
-						<Grid style={[ styles.grid, cstyle.py_20 ]}>
-							<Col style={[ cstyle.px_5, cstyle.pt_30 ]}>
-								<Image
-									style={[ styles.smImg, cstyle.selfCenter ]}
-									source={{
-										uri:
-											'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-									}}
-								/>
-								<Text style={[ styles.secondryColor, styles.number, cstyle.selfCenter ]}>2</Text>
-								<Text style={[ styles.subTitle, cstyle.selfCenter ]}>Larry Porter</Text>
-								<Text style={[ cstyle.selfCenter, styles.percent ]}>85%</Text>
-							</Col>
-							<Col style={[ cstyle.px_5 ]}>
-								<Image
-									style={[ styles.lgImg ]}
-									source={{
-										uri:
-											'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-									}}
-								/>
-								<Text style={[ styles.secondryColor, styles.number, cstyle.selfCenter ]}>1</Text>
-								<Text style={[ styles.subTitle2, cstyle.selfCenter ]}>Flora T. Chapel</Text>
-								<Text style={[ cstyle.selfCenter, styles.percent ]}>90%</Text>
-							</Col>
-							<Col style={[ cstyle.px_5, cstyle.pt_30 ]}>
-								<Image
-									style={[ styles.smImg, cstyle.selfCenter ]}
-									source={{
-										uri:
-											'https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
-									}}
-								/>
-								<Text style={[ styles.secondryColor, styles.number, cstyle.selfCenter ]}>3</Text>
-								<Text style={[ styles.subTitle, cstyle.selfCenter ]}>Bette Beach</Text>
-								<Text style={[ cstyle.selfCenter, styles.percent ]}>85%</Text>
-							</Col>
-						</Grid>
-					</View>
-					<View>{list.map((l, index) => <StarsList key={l} index={index} />)}</View>
+					{view === 'world' ? (
+						<World />
+					) : view === 'show' ? (
+						<World />
+					) : view === 'discover' ? (
+						<HomeDiscover />
+					) : (
+						<TopStars />
+					)}
 				</ScrollView>
 			</SafeAreaView>
 		</Fragment>
@@ -91,42 +68,3 @@ function Home({ navigation }) {
 }
 
 export default Home;
-
-const styles = StyleSheet.create({
-	mainText: {
-		fontSize: 30,
-		fontWeight: 'bold'
-	},
-	smImg: {
-		height: 80,
-		width: '80%',
-		borderRadius: 20
-	},
-	lgImg: {
-		height: 90,
-		width: 'auto',
-		borderRadius: 20
-	},
-	secondryColor: {
-		color: '#C41851'
-	},
-	number: {
-		fontSize: 18
-	},
-	subTitle: {
-		fontSize: 13,
-		fontWeight: 'bold'
-	},
-	subTitle2: {
-		fontSize: 15,
-		fontWeight: 'bold'
-	},
-	percent: {
-		color: 'grey',
-		fontWeight: 'bold'
-	},
-	grid: {
-		backgroundColor: '#fbfcfe',
-		borderRadius: 30
-	}
-});

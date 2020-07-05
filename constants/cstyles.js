@@ -68,6 +68,9 @@ export default StyleSheet.create({
 	px_15: {
 		paddingHorizontal: 15
 	},
+	px_20: {
+		paddingHorizontal: 20
+	},
 	py_10: {
 		paddingTop: 10,
 		paddingBottom: 10
@@ -87,6 +90,9 @@ export default StyleSheet.create({
 	},
 	ml_15: {
 		marginLeft: 15
+	},
+	ml_5: {
+		marginLeft: 5
 	},
 	mr_15: {
 		marginRight: 15

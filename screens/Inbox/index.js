@@ -7,7 +7,7 @@ import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { Item, Icon, Input } from 'native-base';
 import { Ionicons, Feather } from '@expo/vector-icons';
 
-function Inbox() {
+function Inbox({ navigation }) {
 	const [ messages, setMessages ] = useState([
 		'a',
 		'b',
@@ -35,7 +35,7 @@ function Inbox() {
 							<Icon active name="search" />
 							<Input placeholder="Search" />
 						</Item>
-						<TouchableOpacity style={styles.HeaderIcon}>
+						<TouchableOpacity style={styles.HeaderIcon} onPress={() => navigation.toggleDrawer()}>
 							<Ionicons name="ios-menu" size={24} color="black" />
 						</TouchableOpacity>
 					</View>

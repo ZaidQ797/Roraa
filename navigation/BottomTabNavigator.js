@@ -20,53 +20,60 @@ const INITIAL_ROUTE_NAME = 'Home';
 
 function BottomTabNavigator({ navigation }) {
 	return (
-		<Tab.Navigator
-			initialRouteName={INITIAL_ROUTE_NAME}
-			activeColor="#f0edf6"
-			inactiveColor="#3e2465"
-			barStyle={{ backgroundColor: '#c41851' }}
+		<LinearGradient
+			colors={[ Colors.primaryGradient, Colors.secondryGradient ]}
+			start={[ 0.1, 0.1 ]}
+			end={[ 0.5, 0.5 ]}
+			style={cstyles.container}
 		>
-			<Tab.Screen
-				name="Home"
-				component={HomeScreen}
-				options={{
-					tabBarLabel: 'Home',
-					tabBarIcon: () => <AntDesign name="home" size={24} color="white" />
-				}}
-			/>
-			<Tab.Screen
-				name="Inbox"
-				component={InboxScreen}
-				options={{
-					tabBarLabel: 'Inbox',
-					tabBarIcon: () => <Feather name="message-square" size={24} color="white" />
-				}}
-			/>
-			<Tab.Screen
-				name="Gallery"
-				component={InterestsScreen}
-				options={{
-					tabBarLabel: 'Gallery',
-					tabBarIcon: () => <Entypo name="picasa" size={24} color="white" />
-				}}
-			/>
-			<Tab.Screen
-				name="Star"
-				component={VisitorsScreen}
-				options={{
-					tabBarLabel: 'Star',
-					tabBarIcon: () => <AntDesign name="staro" size={24} color="white" />
-				}}
-			/>
-			<Tab.Screen
-				name="Profile"
-				component={ProfileScreen}
-				options={{
-					tabBarLabel: 'Profile',
-					tabBarIcon: () => <Feather name="user" size={24} color="white" />
-				}}
-			/>
-		</Tab.Navigator>
+			<Tab.Navigator
+				initialRouteName={INITIAL_ROUTE_NAME}
+				activeColor="#f0edf6"
+				inactiveColor="#3e2465"
+				barStyle={{ backgroundColor: 'transparent' }}
+			>
+				<Tab.Screen
+					name="Home"
+					component={HomeScreen}
+					options={{
+						tabBarLabel: 'Home',
+						tabBarIcon: () => <AntDesign name="home" size={24} color="white" />
+					}}
+				/>
+				<Tab.Screen
+					name="Inbox"
+					component={InboxScreen}
+					options={{
+						tabBarLabel: 'Inbox',
+						tabBarIcon: () => <Feather name="message-square" size={24} color="white" />
+					}}
+				/>
+				<Tab.Screen
+					name="Gallery"
+					component={InterestsScreen}
+					options={{
+						tabBarLabel: 'Gallery',
+						tabBarIcon: () => <Entypo name="picasa" size={24} color="white" />
+					}}
+				/>
+				<Tab.Screen
+					name="Star"
+					component={VisitorsScreen}
+					options={{
+						tabBarLabel: 'Star',
+						tabBarIcon: () => <AntDesign name="staro" size={24} color="white" />
+					}}
+				/>
+				<Tab.Screen
+					name="Profile"
+					component={ProfileScreen}
+					options={{
+						tabBarLabel: 'Profile',
+						tabBarIcon: () => <Feather name="user" size={24} color="white" />
+					}}
+				/>
+			</Tab.Navigator>
+		</LinearGradient>
 	);
 }
 
