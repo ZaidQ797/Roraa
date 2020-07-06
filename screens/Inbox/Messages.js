@@ -11,14 +11,14 @@ import RecievedMessage from './RecievedMessage';
 import SentMessage from './SentMessage';
 import { LinearGradient } from 'expo-linear-gradient';
 
-function Messages() {
+function Messages({ navigation }) {
 	return (
 		<SafeAreaView style={[ cstyles.container ]}>
 			<Header
 				noShadow
 				style={[ { backgroundColor: 'transparent' }, cstyles.row, cstyles.itemsCenter, cstyles.flexBetweeen ]}
 			>
-				<TouchableOpacity style={cstyles.mx_10}>
+				<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.goBack()}>
 					<Entypo name="chevron-small-left" size={24} color="black" />
 				</TouchableOpacity>
 				<Item rounded style={[ styles.input ]}>

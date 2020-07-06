@@ -16,7 +16,8 @@ import Login from './screens/Login';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
 import SelectStylesScreen from './screens/SelectStyles';
-import CurrentScreen from './screens/Inbox/Messages';
+import CurrentScreen from './screens/Inbox/HighLights';
+import MessagesScreen from './screens/Inbox/Messages';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
@@ -59,6 +60,7 @@ export default class App extends React.Component {
 							<Stack.Screen name="ResetPassword" component={ResetPassword} />
 							<Stack.Screen name="Styles" component={SelectStylesScreen} />
 							<Stack.Screen name="Root" children={DrawerNavigator} />
+							<Stack.Screen name="Messages" component={MessagesScreen} />
 						</Stack.Navigator>
 					</NavigationContainer>
 				</View>

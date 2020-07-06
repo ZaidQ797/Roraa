@@ -4,6 +4,7 @@ import { AntDesign, Feather, Entypo } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import Colors from '../constants/Colors';
 import cstyles from '../constants/cstyles';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/Home';
@@ -12,10 +13,10 @@ import InboxScreen from '../screens/Inbox';
 import ProfileScreen from '../screens/Profile';
 import VisitorsScreen from '../screens/Visitors';
 import ScoreScreen from '../screens/Score';
-import SettingScreen from '../screens/Setting';
 import InterestsScreen from '../screens/Interests';
 
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
 function BottomTabNavigator({ navigation }) {
@@ -42,7 +43,7 @@ function BottomTabNavigator({ navigation }) {
 				/>
 				<Tab.Screen
 					name="Inbox"
-					component={InboxScreen}
+					children={InboxScreen}
 					options={{
 						tabBarLabel: 'Inbox',
 						tabBarIcon: () => <Feather name="message-square" size={24} color="white" />

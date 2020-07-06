@@ -105,6 +105,9 @@ export default StyleSheet.create({
 		marginTop: 15,
 		marginBottom: 15
 	},
+	my_25: {
+		marginVertical: 25
+	},
 	my_5: {
 		marginVertical: 5
 	},
@@ -122,6 +125,9 @@ export default StyleSheet.create({
 	},
 	mb_20: {
 		marginBottom: 20
+	},
+	mx_5: {
+		marginHorizontal: 5
 	},
 	mx_10: {
 		marginLeft: 10,

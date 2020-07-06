@@ -5,9 +5,9 @@ import DefaultImage from '../../assets/images/profile.jpg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles';
 
-function MessagesList({ image, name, message, time }) {
+function MessagesList({ image, name, message, time, onPress }) {
 	return (
-		<TouchableOpacity>
+		<TouchableOpacity onPress={onPress}>
 			<List style={styles.listContainer}>
 				<ListItem avatar style={styles.noBorder}>
 					<Left>

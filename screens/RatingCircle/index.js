@@ -4,6 +4,7 @@ import { Header, Left, Body } from 'native-base';
 import cstyles from '../../constants/cstyles';
 import { Entypo } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import Colors from '../../constants/Colors';
 
 function RatingCirle() {
 	return (

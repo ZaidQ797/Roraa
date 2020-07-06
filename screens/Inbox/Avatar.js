@@ -3,10 +3,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { View, Image, StyleSheet } from 'react-native';
 import styles from './styles';
 
-function Avatar({ isActive, image }) {
+function Avatar({ isActive, image, onPress }) {
 	return (
 		<Fragment>
-			<TouchableOpacity>
+			<TouchableOpacity onPress={onPress}>
 				<View style={styles.relative}>
 					<View style={isActive ? styles.greenDot : styles.greyDot} />
 					<Image

@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 import Colors from '../../constants/Colors';
 import Layout from '../../constants/Layout';
+
 export default StyleSheet.create({
 	flexRow: {
 		flexDirection: 'row',
@@ -132,5 +133,62 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 		backgroundColor: Colors.dark
+	},
+	headerButn: {
+		flex: 1,
+		justifyContent: 'flex-end',
+		alignItems: 'center',
+		borderBottomColor: Colors.lightGray,
+		borderBottomWidth: 2
+	},
+	headerButnText: {
+		fontSize: 16,
+		fontWeight: 'bold',
+		lineHeight: 40
+	},
+	circle: {
+		width: 130,
+		height: 130,
+		borderWidth: 8,
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderRadius: 65,
+		borderRightColor: Colors.secondryGradient,
+		borderBottomColor: '#f5d7db',
+		borderLeftColor: '#f5d7db',
+		borderTopColor: '#f5d7db'
+	},
+	circleText: {
+		fontSize: 30,
+		fontWeight: 'bold',
+		color: Colors.secondryGradient
+	},
+	subtitle1: {
+		fontSize: 17,
+		color: Colors.gray,
+		fontWeight: '600'
+	},
+	subtitle2: {
+		fontSize: 16,
+		color: Colors.gray
+	},
+	box: {
+		width: '100%',
+		paddingVertical: 10,
+		borderWidth: 1,
+		borderColor: Colors.gray,
+		borderRadius: 10,
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginTop: 5,
+		minHeight: 100
+	},
+	boxText: {
+		fontSize: 22,
+		fontWeight: '600'
+	},
+	boxTextGray: {
+		fontSize: 12,
+		color: Colors.gray
 	}
 });
