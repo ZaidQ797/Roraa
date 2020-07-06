@@ -6,6 +6,7 @@ import Avatar from './Avatar';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { Item, Icon, Input } from 'native-base';
 import { Ionicons, Feather } from '@expo/vector-icons';
+import styles from './styles';
 
 function Inbox({ navigation }) {
 	const [ messages, setMessages ] = useState([
@@ -65,35 +66,3 @@ function Inbox({ navigation }) {
 }
 
 export default Inbox;
-
-const styles = StyleSheet.create({
-	flexRow: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center'
-	},
-	mainText: {
-		fontSize: 22,
-		fontWeight: 'bold'
-	},
-	subtitle: {
-		fontWeight: 'bold',
-		marginTop: 7,
-		fontSize: 12
-	},
-	avatarList: {
-		paddingLeft: 20
-	},
-	input: {
-		flex: 1,
-		backgroundColor: 'white',
-		height: 40
-	},
-	HeaderIcon: {
-		marginLeft: 20
-	},
-	padding: {
-		paddingLeft: 20,
-		paddingRight: 20
-	}
-});

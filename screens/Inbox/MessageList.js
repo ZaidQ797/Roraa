@@ -3,9 +3,11 @@ import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnai
 import { StyleSheet } from 'react-native';
 import DefaultImage from '../../assets/images/profile.jpg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import styles from './styles';
+
 function MessagesList({ image, name, message, time }) {
 	return (
-		<TouchableOpacity onPress={() => console.log('yes')}>
+		<TouchableOpacity>
 			<List style={styles.listContainer}>
 				<ListItem avatar style={styles.noBorder}>
 					<Left>
@@ -35,29 +37,3 @@ function MessagesList({ image, name, message, time }) {
 }
 
 export default MessagesList;
-
-const styles = StyleSheet.create({
-	listContainer: {
-		backgroundColor: 'white',
-		borderRadius: 5,
-		marginBottom: 5
-	},
-	image: {
-		marginBottom: 12,
-		borderColor: 'black',
-		borderWidth: 1
-	},
-
-	messageHeader: {
-		fontWeight: 'bold',
-		fontSize: 15
-	},
-	message: {
-		fontWeight: 'bold',
-		fontSize: 10
-	},
-	noBorder: {
-		borderBottomWidth: 0,
-		borderBottomColor: 'white'
-	}
-});

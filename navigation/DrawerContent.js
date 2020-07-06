@@ -19,9 +19,9 @@ function DrawerContent(props) {
 				<DrawerContentScrollView {...props}>
 					<Drawer.Section>
 						<View style={[ cstyles.container, styles.upperContainer ]}>
-							<View style={(cstyles.row, cstyles.flexCenter, cstyles.itemsCenter)}>
+							<View style={[ cstyles.row, cstyles.flexCenter, cstyles.itemsCenter ]}>
 								<View style={styles.avatar} />
-								<View>
+								<View style={cstyles.ml_10}>
 									<Text style={styles.mainText}>Danya Brainstow</Text>
 									<Text style={styles.mainTextSm}>San Fransisco, USA</Text>
 								</View>
@@ -49,9 +49,9 @@ const styles = StyleSheet.create({
 		paddingVertical: 40
 	},
 	avatar: {
-		width: 80,
-		height: 80,
-		borderRadius: 40,
+		width: 60,
+		height: 60,
+		borderRadius: 30,
 		backgroundColor: Colors.bright
 	},
 	mainText: {
@@ -66,12 +66,14 @@ const styles = StyleSheet.create({
 	},
 	labelStyle: {
 		color: Colors.bright,
-		fontSize: 15,
+		fontSize: 18,
 		fontWeight: 'bold'
 	},
 	itemStyle: {
 		marginTop: 0,
 		marginBottom: 0,
-		paddingLeft: 40
+		paddingLeft: 30,
+		height: 35,
+		justifyContent: 'center'
 	}
 });
