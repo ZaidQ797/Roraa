@@ -10,6 +10,7 @@ import styles from './styles';
 import TopStars from './TopStars';
 import HomeDiscover from './HomeDiscover';
 import World from './World';
+import Show from './Show';
 
 function Home({ navigation }) {
 	const [ view, setView ] = useState('world');
@@ -27,12 +28,22 @@ function Home({ navigation }) {
 					</Right>
 				</Header>
 				<View style={[ cstyle.px_20, styles.borderBottom ]}>
-					<View style={[ cstyle.row, cstyle.itemsCenter, cstyle.flexBetweeen, cstyle.mb_15 ]}>
-						<Text style={styles.headerText}>New Feed For You</Text>
-						<TouchableOpacity style={styles.headerButn}>
-							<Text style={styles.butnText}>NEW FEED</Text>
-						</TouchableOpacity>
-					</View>
+					{view === 'show' ? (
+						<View style={[ cstyle.row, cstyle.itemsCenter, cstyle.flexBetweeen, cstyle.mb_15 ]}>
+							<Text style={styles.headerText}>New Videos For You</Text>
+							<TouchableOpacity style={styles.headerButn}>
+								<Text style={styles.butnText}>NEW VIDEO</Text>
+							</TouchableOpacity>
+						</View>
+					) : (
+						<View style={[ cstyle.row, cstyle.itemsCenter, cstyle.flexBetweeen, cstyle.mb_15 ]}>
+							<Text style={styles.headerText}>New Feed For You</Text>
+							<TouchableOpacity style={styles.headerButn}>
+								<Text style={styles.butnText}>NEW FEED</Text>
+							</TouchableOpacity>
+						</View>
+					)}
+
 					<View style={[ cstyle.row, cstyle.itemsCenter, cstyle.flexBetweeen ]}>
 						<TouchableOpacity style={view === 'world' && styles.activeTab} onPress={() => setView('world')}>
 							<Text style={styles.tabText}>World</Text>
@@ -55,7 +66,7 @@ function Home({ navigation }) {
 					{view === 'world' ? (
 						<World />
 					) : view === 'show' ? (
-						<World />
+						<Show />
 					) : view === 'discover' ? (
 						<HomeDiscover />
 					) : (

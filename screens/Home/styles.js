@@ -114,7 +114,6 @@ export default StyleSheet.create({
 	},
 	storyText: {
 		fontSize: 13,
-		color: Colors.gray,
-		paddingLeft: 20
+		color: Colors.gray
 	}
 });
