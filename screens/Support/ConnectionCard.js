@@ -2,12 +2,12 @@ import React from 'react';
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
 import { StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import styles from './styles';
+import cstyles from '../../constants/cstyles';
 
-function MessagesList({ image, name, message, time, onPress }) {
+function ConnectionCard({ image, name, connection, onPress }) {
 	return (
 		<TouchableOpacity onPress={onPress}>
-			<List style={styles.listContainer}>
+			<List style={[ styles.listContainer, cstyles.boxShadow ]}>
 				<ListItem avatar style={styles.noBorder}>
 					<Left>
 						<Thumbnail
@@ -21,18 +21,41 @@ function MessagesList({ image, name, message, time, onPress }) {
 					<Body style={styles.noBorder}>
 						<Text style={styles.messageHeader}>{name || 'Kumar Pratik'}</Text>
 						<Text note style={styles.message}>
-							{message || 'Doing what you like will always keep you happy . .'}
+							{connection || '7 Mutual Connections'}
 						</Text>
 					</Body>
-					<Right style={styles.noBorder}>
-						<Text note style={styles.message}>
-							{time || '3:43 pm'}
-						</Text>
-					</Right>
 				</ListItem>
 			</List>
 		</TouchableOpacity>
 	);
 }
 
-export default MessagesList;
+export default ConnectionCard;
+
+const styles = StyleSheet.create({
+	listContainer: {
+		backgroundColor: 'white',
+		borderRadius: 5,
+		marginBottom: 10,
+		paddingVertical: 5
+	},
+	image: {
+		marginBottom: 12,
+		borderColor: 'black',
+		borderWidth: 1
+	},
+
+	messageHeader: {
+		fontWeight: '500',
+		fontSize: 17
+	},
+	message: {
+		fontWeight: '100',
+		fontSize: 13,
+		color: 'gray'
+	},
+	noBorder: {
+		borderBottomWidth: 0,
+		borderBottomColor: 'white'
+	}
+});

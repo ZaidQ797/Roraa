@@ -13,6 +13,7 @@ import InboxScreen from '../screens/Inbox';
 import ProfileScreen from '../screens/Profile';
 import VisitorsScreen from '../screens/Visitors';
 import ScoreScreen from '../screens/Score';
+import CameraScreen from '../screens/Camera';
 import InterestsScreen from '../screens/Interests';
 
 const Tab = createMaterialBottomTabNavigator();
@@ -51,7 +52,7 @@ function BottomTabNavigator({ navigation }) {
 				/>
 				<Tab.Screen
 					name="Gallery"
-					component={InterestsScreen}
+					component={CameraScreen}
 					options={{
 						tabBarLabel: 'Gallery',
 						tabBarIcon: () => <Entypo name="picasa" size={24} color="white" />

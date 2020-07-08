@@ -16,8 +16,8 @@ import Login from './screens/Login';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
 import SelectStylesScreen from './screens/SelectStyles';
-import CurrentScreen from './screens/Inbox/HighLights';
 import MessagesScreen from './screens/Inbox/Messages';
+import CurrentScreen from './screens/Camera';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
