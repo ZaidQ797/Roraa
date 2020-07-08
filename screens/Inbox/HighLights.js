@@ -8,13 +8,13 @@ import { Entypo, AntDesign, Feather, FontAwesome5 } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 import ButtonGradient from '../../components/ButtonGradient';
 
-function HighLights() {
+function HighLights({ navigation }) {
 	const [ view, setView ] = useState('highlights');
 	return (
 		<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
 			<Header noShadow style={{ backgroundColor: Colors.lightGray }}>
 				<Left>
-					<TouchableOpacity style={cstyles.mx_10}>
+					<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.goBack()}>
 						<Entypo name="chevron-small-left" size={24} color="black" />
 					</TouchableOpacity>
 				</Left>

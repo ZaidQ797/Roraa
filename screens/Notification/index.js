@@ -20,7 +20,7 @@ function Notification() {
 					</TouchableOpacity>
 				</Left>
 				<Body>
-					<Text style={styles.mainText}>Sharing</Text>
+					<Text style={styles.mainText}>Notifications</Text>
 				</Body>
 			</Header>
 			<ScrollView style={cstyles.container}>

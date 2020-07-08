@@ -6,14 +6,16 @@ import { Entypo } from '@expo/vector-icons';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import PriceBox from './PriceBox';
 
-function PricePlan() {
+function PricePlan({ navigation }) {
 	const [ plan, setPlan ] = useState([ 'basic', 'standard', 'premium' ]);
 	return (
 		<Fragment>
 			<View style={cstyles.container}>
 				<Header noShadow style={{ backgroundColor: 'transparent' }}>
 					<Left>
-						<Entypo name="chevron-small-left" size={24} color="black" />
+						<TouchableOpacity onPress={() => navigation.goBack()}>
+							<Entypo name="chevron-small-left" size={24} color="black" />
+						</TouchableOpacity>
 					</Left>
 					<Body>
 						<Text style={styles.mainText}>Price Plan</Text>

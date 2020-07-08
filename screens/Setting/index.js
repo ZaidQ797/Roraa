@@ -1,17 +1,19 @@
 import React, { Fragment, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Header, Left, Body, List, ListItem, View } from 'native-base';
 import cstyles from '../../constants/cstyles';
 import { Entypo } from '@expo/vector-icons';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 
-function Visitors() {
+function Visitors({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
 				<Header noShadow style={{ backgroundColor: 'transparent' }}>
 					<Left>
-						<Entypo name="chevron-small-left" size={24} color="black" />
+						<TouchableOpacity onPress={() => navigation.goBack()}>
+							<Entypo name="chevron-small-left" size={24} color="black" />
+						</TouchableOpacity>
 					</Left>
 					<Body>
 						<Text style={styles.mainText}>Settings</Text>
@@ -22,7 +24,7 @@ function Visitors() {
 						<ListItem style={styles.noBorder}>
 							<Text style={[ styles.textStyle, styles.colorGrey ]}>Account</Text>
 						</ListItem>
-						<ListItem style={styles.noBorder}>
+						<ListItem style={styles.noBorder} onPress={() => navigation.navigate('ProfileDetail')}>
 							<Text style={styles.textStyle}>Edit your account</Text>
 						</ListItem>
 						<ListItem style={styles.noBorder}>
@@ -31,7 +33,7 @@ function Visitors() {
 						<ListItem style={styles.noBorder}>
 							<Text style={styles.textStyle}>Rating guideline</Text>
 						</ListItem>
-						<ListItem style={styles.noBorder}>
+						<ListItem style={styles.noBorder} onPress={() => navigation.navigate('PricePlan')}>
 							<Text style={styles.textStyle}>Roraa gold</Text>
 						</ListItem>
 						<ListItem style={styles.noBorder}>

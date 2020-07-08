@@ -1,17 +1,19 @@
 import React, { Fragment, useState } from 'react';
-import { SafeAreaView, TextInput, StyleSheet, Text, View, FlatList } from 'react-native';
+import { SafeAreaView, TextInput, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { Header, Left, Body, Icon, Item, Input } from 'native-base';
 import cstyles from '../../constants/cstyles';
 import { Entypo, AntDesign, EvilIcons } from '@expo/vector-icons';
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 
-function AddInterest() {
+function AddInterest({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
 				<Header noShadow style={{ backgroundColor: 'transparent' }}>
 					<Left>
-						<Entypo name="chevron-small-left" size={24} color="black" />
+						<TouchableOpacity onPress={() => navigation.goBack()}>
+							<Entypo name="chevron-small-left" size={24} color="black" />
+						</TouchableOpacity>
 					</Left>
 					<Body>
 						<Text style={styles.mainText}>New Interest</Text>

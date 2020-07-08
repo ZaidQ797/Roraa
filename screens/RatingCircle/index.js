@@ -6,13 +6,15 @@ import { Entypo } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Colors from '../../constants/Colors';
 
-function RatingCirle() {
+function RatingCirle({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
 				<Header noShadow style={{ backgroundColor: 'transparent' }}>
 					<Left>
-						<Entypo name="chevron-small-left" size={24} color="black" />
+						<TouchableOpacity onPress={() => navigation.goBack()}>
+							<Entypo name="chevron-small-left" size={24} color="black" />
+						</TouchableOpacity>
 					</Left>
 					<Body>
 						<Text style={styles.mainText}>Rating</Text>

@@ -49,7 +49,7 @@ export default StyleSheet.create({
 		fontWeight: 'bold',
 		fontSize: 15
 	},
-	message: {
+	ListMessage: {
 		fontWeight: 'bold',
 		fontSize: 10
 	},
@@ -67,8 +67,8 @@ export default StyleSheet.create({
 		backgroundColor: 'green',
 		borderRadius: 100,
 		position: 'absolute',
-		top: '10%',
-		right: '16%'
+		top: '8%',
+		right: '18%'
 	},
 	greyDot: {
 		zIndex: 100,
@@ -77,14 +77,14 @@ export default StyleSheet.create({
 		backgroundColor: 'grey',
 		borderRadius: 100,
 		position: 'absolute',
-		top: '10%',
-		right: '16%'
+		top: '8%',
+		right: '18%'
 	},
 	avatar: {
 		width: 60,
 		height: 60,
 		borderRadius: 30,
-		marginRight: 4
+		marginRight: 5
 	},
 	divider: {
 		flex: 1,

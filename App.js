@@ -17,6 +17,18 @@ import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
 import SelectStylesScreen from './screens/SelectStyles';
 import MessagesScreen from './screens/Inbox/Messages';
+import SettingScreen from './screens/Setting';
+import ProfileDetailScreen from './screens/ProfileDetail';
+import WorldScreen from './screens/World';
+import AddGoalScreen from './screens/AddGoal';
+import AddTalentScreen from './screens/AddTalent';
+import AddInterestScreen from './screens/AddInterest';
+import SharingScreen from './screens/Sharing';
+import ChatHighlightsScreen from './screens/Inbox/HighLights';
+import RatingScreen from './screens/RatingCircle';
+import InterestScreen from './screens/Interests';
+import PricePlanScreen from './screens/PricePlan';
+
 import CurrentScreen from './screens/Camera';
 
 var deviceWidth = Dimensions.get('window').width;
@@ -61,6 +73,17 @@ export default class App extends React.Component {
 							<Stack.Screen name="Styles" component={SelectStylesScreen} />
 							<Stack.Screen name="Root" children={DrawerNavigator} />
 							<Stack.Screen name="Messages" component={MessagesScreen} />
+							<Stack.Screen name="Setting" component={SettingScreen} />
+							<Stack.Screen name="ChatHighlight" component={ChatHighlightsScreen} />
+							<Stack.Screen name="Share" component={SharingScreen} />
+							<Stack.Screen name="World" component={WorldScreen} />
+							<Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
+							<Stack.Screen name="AddGoal" component={AddGoalScreen} />
+							<Stack.Screen name="AddTalent" component={AddTalentScreen} />
+							<Stack.Screen name="AddInterest" component={AddInterestScreen} />
+							<Stack.Screen name="Rating" component={RatingScreen} />
+							<Stack.Screen name="Interest" component={InterestScreen} />
+							<Stack.Screen name="PricePlan" component={PricePlanScreen} />
 						</Stack.Navigator>
 					</NavigationContainer>
 				</View>

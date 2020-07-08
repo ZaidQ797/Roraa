@@ -28,13 +28,43 @@ function DrawerContent(props) {
 							</View>
 						</View>
 					</Drawer.Section>
-					<DrawerItem style={styles.itemStyle} label="Dashboard" labelStyle={styles.labelStyle} />
-					<DrawerItem style={styles.itemStyle} label="Discover" labelStyle={styles.labelStyle} />
+					<DrawerItem
+						style={styles.itemStyle}
+						label="Dashboard"
+						labelStyle={styles.labelStyle}
+						onPress={() => props.navigation.navigate('World')}
+					/>
+					<DrawerItem
+						style={styles.itemStyle}
+						label="Discover"
+						labelStyle={styles.labelStyle}
+						onPress={() => props.navigation.navigate('Interest')}
+					/>
 					<DrawerItem style={styles.itemStyle} label="Messages" labelStyle={styles.labelStyle} />
-					<DrawerItem style={styles.itemStyle} label="Chat" labelStyle={styles.labelStyle} />
-					<DrawerItem style={styles.itemStyle} label="Invite Friends" labelStyle={styles.labelStyle} />
-					<DrawerItem style={styles.itemStyle} label="Favorites" labelStyle={styles.labelStyle} />
-					<DrawerItem style={styles.itemStyle} label="Settings" labelStyle={styles.labelStyle} />
+					<DrawerItem
+						style={styles.itemStyle}
+						label="Chat"
+						labelStyle={styles.labelStyle}
+						onPress={() => props.navigation.navigate('ChatHighlight')}
+					/>
+					<DrawerItem
+						style={styles.itemStyle}
+						label="Invite Friends"
+						labelStyle={styles.labelStyle}
+						onPress={() => props.navigation.navigate('Share')}
+					/>
+					<DrawerItem
+						style={styles.itemStyle}
+						label="Favorites"
+						labelStyle={styles.labelStyle}
+						onPress={() => props.navigation.navigate('Rating')}
+					/>
+					<DrawerItem
+						style={styles.itemStyle}
+						label="Settings"
+						labelStyle={styles.labelStyle}
+						onPress={() => props.navigation.navigate('Setting')}
+					/>
 					<DrawerItem style={styles.itemStyle} label="Logout" labelStyle={styles.labelStyle} />
 				</DrawerContentScrollView>
 			</LinearGradient>

@@ -20,7 +20,7 @@ function MessagesList({ image, name, message, time, onPress }) {
 					</Left>
 					<Body style={styles.noBorder}>
 						<Text style={styles.messageHeader}>{name || 'Kumar Pratik'}</Text>
-						<Text note style={styles.message}>
+						<Text note style={styles.ListMessage}>
 							{message || 'Doing what you like will always keep you happy . .'}
 						</Text>
 					</Body>

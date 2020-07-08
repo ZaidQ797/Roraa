@@ -2,11 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
-import { FontAwesome, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import cstyles from '../../constants/cstyles';
+import Layout from '../../constants/Layout';
+import { ScrollView } from 'react-native-gesture-handler';
 // import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
 	const [ permission, setPermission ] = useState(null);
+	const [ cameraType, setCameraType ] = useState('photo');
 	const [ type, setType ] = useState(Camera.Constants.Type.back);
 	const camera = useRef(null);
 
@@ -50,39 +54,44 @@ export default function App() {
 	};
 
 	return (
-		<View style={{ flex: 1 }}>
-			<Camera style={{ flex: 1 }} type={type} ref={camera}>
-				<View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', margin: 20 }}>
-					<TouchableOpacity
-						style={{
-							alignSelf: 'flex-end',
-							alignItems: 'center',
-							backgroundColor: 'transparent'
-						}}
-						onPress={() => pickImage()}
-					>
-						<Ionicons name="ios-photos" style={{ color: '#fff', fontSize: 40 }} />
-					</TouchableOpacity>
-					<TouchableOpacity
-						style={{
-							alignSelf: 'flex-end',
-							alignItems: 'center',
-							backgroundColor: 'transparent'
-						}}
-						onPress={() => takePicture()}
-					>
-						<FontAwesome name="camera" style={{ color: '#fff', fontSize: 40 }} />
-					</TouchableOpacity>
-					<TouchableOpacity
-						style={{
-							alignSelf: 'flex-end',
-							alignItems: 'center',
-							backgroundColor: 'transparent'
-						}}
-						onPress={() => handleCameraType()}
-					>
-						<MaterialCommunityIcons name="camera-switch" style={{ color: '#fff', fontSize: 40 }} />
-					</TouchableOpacity>
+		<View style={cstyles.container}>
+			<Camera style={cstyles.container} type={type} ref={camera}>
+				<View style={styles.bottomContainer}>
+					<View style={styles.bottom}>
+						<ScrollView horizontal style={styles.textContainer}>
+							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('photo')}>
+								<Text style={[ cameraType === 'photo' ? styles.activeTextButn : styles.textStyle ]}>
+									Photo
+								</Text>
+							</TouchableOpacity>
+							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('dual')}>
+								<Text style={[ cameraType === 'dual' ? styles.activeTextButn : styles.textStyle ]}>
+									Dual
+								</Text>
+							</TouchableOpacity>
+							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('gif')}>
+								<Text style={[ cameraType === 'gif' ? styles.activeTextButn : styles.textStyle ]}>
+									GIF
+								</Text>
+							</TouchableOpacity>
+							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('magic')}>
+								<Text style={[ cameraType === 'magic' ? styles.activeTextButn : styles.textStyle ]}>
+									Magic
+								</Text>
+							</TouchableOpacity>
+						</ScrollView>
+						<View style={styles.iconContainer}>
+							<TouchableOpacity style={styles.sideButn} onPress={() => pickImage()}>
+								<MaterialIcons name="photo-library" size={30} color="white" />
+							</TouchableOpacity>
+							<TouchableOpacity style={styles.takePic} onPress={() => takePicture()}>
+								<View style={styles.takePicCircle} />
+							</TouchableOpacity>
+							<TouchableOpacity style={styles.sideButn} onPress={() => handleCameraType()}>
+								<Ionicons name="ios-reverse-camera" size={35} color="white" />
+							</TouchableOpacity>
+						</View>
+					</View>
 				</View>
 			</Camera>
 		</View>
@@ -95,5 +104,63 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center'
+	},
+	bottomContainer: {
+		flex: 1,
+		justifyContent: 'flex-end'
+	},
+	bottom: {
+		height: 125,
+		width: '100%',
+		backgroundColor: 'black',
+		opacity: 0.6,
+		padding: 10
+	},
+	iconContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center'
+	},
+	textContainer: {
+		alignSelf: 'flex-end'
+	},
+	textStyle: {
+		fontSize: 15,
+		color: 'white'
+	},
+	textButn: {
+		width: 50,
+		height: 30,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	activeTextButn: {
+		fontSize: 20,
+		color: 'white',
+		borderBottomColor: 'white',
+		borderBottomWidth: 1
+	},
+	takePic: {
+		width: 65,
+		height: 65,
+		borderColor: 'white',
+		borderWidth: 1,
+		alignSelf: 'flex-end',
+		borderRadius: 33,
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	takePicCircle: {
+		width: 55,
+		height: 55,
+		borderRadius: 30,
+		backgroundColor: 'white'
+	},
+	sideButn: {
+		alignSelf: 'flex-end',
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: 'transparent',
+		marginHorizontal: 10
 	}
 });

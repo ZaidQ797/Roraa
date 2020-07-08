@@ -9,14 +9,14 @@ import ProfilePic from '../../assets/images/profileImg.png';
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
 
-function ProfileDetail() {
+function ProfileDetail({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={cstyles.container}>
 				<ScrollView style={[ cstyles.container ]}>
 					<View style={styles.imageContainer}>
 						<ImageBackground style={styles.imgBg} source={ProfilePic}>
-							<TouchableOpacity style={styles.backBtn}>
+							<TouchableOpacity style={styles.backBtn} onPress={() => navigation.goBack()}>
 								<Entypo name="chevron-small-left" size={24} color="black" />
 							</TouchableOpacity>
 							<TouchableOpacity style={[ styles.iconButton, cstyles.testBorder ]}>

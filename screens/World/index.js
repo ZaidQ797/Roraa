@@ -8,7 +8,7 @@ import Visitor from '../Visitors/NewVistor';
 import InfluanceBoard from './InfluanceBoard';
 import ProfilePic from '../../assets/images/profile.png';
 
-function World() {
+function World({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
@@ -403,7 +403,10 @@ function World() {
 									<AntDesign name="heart" size={20} color="#f5656b" />
 									<Text style={[ styles.font_18, cstyles.ml_10 ]}>Interest</Text>
 								</View>
-								<TouchableOpacity style={styles.iconButton}>
+								<TouchableOpacity
+									style={styles.iconButton}
+									onPress={() => navigation.navigate('AddInterest')}
+								>
 									<Ionicons name="md-add" size={15} color="white" />
 								</TouchableOpacity>
 							</View>
@@ -572,7 +575,10 @@ function World() {
 									<MaterialCommunityIcons name="arch" size={20} color="#f5656b" />
 									<Text style={[ styles.font_18, cstyles.ml_10 ]}>Goals</Text>
 								</View>
-								<TouchableOpacity style={styles.iconButton}>
+								<TouchableOpacity
+									style={styles.iconButton}
+									onPress={() => navigation.navigate('AddGoal')}
+								>
 									<Ionicons name="md-add" size={15} color="white" />
 								</TouchableOpacity>
 							</View>
@@ -721,7 +727,10 @@ function World() {
 									<MaterialIcons name="stars" size={20} color="#f5656b" />
 									<Text style={[ styles.font_18, cstyles.ml_10 ]}>Talents</Text>
 								</View>
-								<TouchableOpacity style={styles.iconButton}>
+								<TouchableOpacity
+									style={styles.iconButton}
+									onPress={() => navigation.navigate('AddTalent')}
+								>
 									<Ionicons name="md-add" size={15} color="white" />
 								</TouchableOpacity>
 							</View>
