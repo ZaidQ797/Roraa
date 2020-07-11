@@ -1,12 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View, FlatList } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { Header, Left, Body } from 'native-base';
 import cstyles from '../../constants/cstyles';
 import { Entypo } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 import ScoreList from './ScoreList';
 
-function Visitors() {
+function Visitors({ navigation }) {
 	const [ score, setNewScore ] = useState([
 		'a',
 		'b',
@@ -30,7 +30,9 @@ function Visitors() {
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
 				<Header noShadow style={{ backgroundColor: 'transparent' }}>
 					<Left>
-						<Entypo name="chevron-small-left" size={24} color="black" />
+						<TouchableOpacity onPress={() => navigation.goBack()}>
+							<Entypo name="chevron-small-left" size={24} color="black" />
+						</TouchableOpacity>
 					</Left>
 					<Body>
 						<Text style={styles.mainText}>Score</Text>

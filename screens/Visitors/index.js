@@ -3,11 +3,11 @@ import { SafeAreaView, StyleSheet, Text, View, FlatList } from 'react-native';
 import { Header, Left, Body } from 'native-base';
 import cstyles from '../../constants/cstyles';
 import { Entypo } from '@expo/vector-icons';
-import { ScrollView } from 'react-native-gesture-handler';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import NewVisitor from './NewVistor';
 import OldVisitors from './OldVisitors';
 
-function Visitors() {
+function Visitors({ navigation }) {
 	const [ newVisitors, setNewVisitors ] = useState([
 		'a',
 		'b',
@@ -31,7 +31,9 @@ function Visitors() {
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
 				<Header noShadow style={{ backgroundColor: 'transparent' }}>
 					<Left>
-						<Entypo name="chevron-small-left" size={24} color="black" />
+						<TouchableOpacity onPress={() => navigation.goBack()}>
+							<Entypo name="chevron-small-left" size={24} color="black" />
+						</TouchableOpacity>
 					</Left>
 					<Body>
 						<Text style={styles.mainText}>My Profile Visitors</Text>

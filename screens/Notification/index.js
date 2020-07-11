@@ -15,7 +15,7 @@ function Notification() {
 		<SafeAreaView style={[ cstyles.container ]}>
 			<Header noShadow style={{ backgroundColor: 'transparent' }}>
 				<Left>
-					<TouchableOpacity onPress={() => navigation.goBack()}>
+					<TouchableOpacity>
 						<Entypo name="chevron-small-left" size={24} color="black" />
 					</TouchableOpacity>
 				</Left>

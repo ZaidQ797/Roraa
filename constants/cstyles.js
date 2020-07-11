@@ -239,6 +239,17 @@ export default StyleSheet.create({
 		borderBottomColor: Colors.gray,
 		borderBottomWidth: 0.3
 	},
+	pickerUnderLineContainer: {
+		// flex: 1,
+		height: 35,
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginTop: 10,
+		marginBottom: 10,
+		paddingBottom: 3,
+		borderBottomColor: Colors.gray,
+		borderBottomWidth: 0.3
+	},
 	inputUnderLineIconContainer: {
 		justifyContent: 'center',
 		alignItems: 'center',

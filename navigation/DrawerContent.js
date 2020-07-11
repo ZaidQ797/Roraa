@@ -30,34 +30,16 @@ function DrawerContent(props) {
 					</Drawer.Section>
 					<DrawerItem
 						style={styles.itemStyle}
-						label="Dashboard"
+						label="Profile"
 						labelStyle={styles.labelStyle}
 						onPress={() => props.navigation.navigate('World')}
 					/>
+					<DrawerItem style={styles.itemStyle} label="Roraa Ads" labelStyle={styles.labelStyle} />
 					<DrawerItem
 						style={styles.itemStyle}
-						label="Discover"
+						label="Payments"
 						labelStyle={styles.labelStyle}
-						onPress={() => props.navigation.navigate('Interest')}
-					/>
-					<DrawerItem style={styles.itemStyle} label="Messages" labelStyle={styles.labelStyle} />
-					<DrawerItem
-						style={styles.itemStyle}
-						label="Chat"
-						labelStyle={styles.labelStyle}
-						onPress={() => props.navigation.navigate('ChatHighlight')}
-					/>
-					<DrawerItem
-						style={styles.itemStyle}
-						label="Invite Friends"
-						labelStyle={styles.labelStyle}
-						onPress={() => props.navigation.navigate('Share')}
-					/>
-					<DrawerItem
-						style={styles.itemStyle}
-						label="Favorites"
-						labelStyle={styles.labelStyle}
-						onPress={() => props.navigation.navigate('Rating')}
+						onPress={() => props.navigation.navigate('PricePlan')}
 					/>
 					<DrawerItem
 						style={styles.itemStyle}

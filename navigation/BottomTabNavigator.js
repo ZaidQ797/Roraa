@@ -8,16 +8,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/Home';
-import LinksScreen from '../screens/LinksScreen';
 import InboxScreen from '../screens/Inbox';
 import ProfileScreen from '../screens/Profile';
-import VisitorsScreen from '../screens/Visitors';
-import ScoreScreen from '../screens/Score';
 import CameraScreen from '../screens/Camera';
-import InterestsScreen from '../screens/Interests';
+import NotificationScreen from '../screens/Notification';
 
 const Tab = createMaterialBottomTabNavigator();
-const Stack = createStackNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
 function BottomTabNavigator({ navigation }) {
@@ -60,7 +56,7 @@ function BottomTabNavigator({ navigation }) {
 				/>
 				<Tab.Screen
 					name="Star"
-					component={VisitorsScreen}
+					component={NotificationScreen}
 					options={{
 						tabBarLabel: 'Star',
 						tabBarIcon: () => <AntDesign name="staro" size={24} color="white" />

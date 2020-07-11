@@ -3,7 +3,7 @@ import { SafeAreaView, Text } from 'react-native';
 import cstyles from '../../constants/cstyles';
 import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 import { Header, Left, Right, Body, Item, Icon, Input, View } from 'native-base';
-import { Entypo, AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { Entypo, AntDesign, MaterialIcons, Ionicons, Octicons } from '@expo/vector-icons';
 import Colors from '../../constants/Colors';
 import styles from './styles';
 import Divider from './Divider';
@@ -26,8 +26,8 @@ function Messages({ navigation }) {
 					<Input placeholder="Search" />
 				</Item>
 
-				<TouchableOpacity style={cstyles.mx_10}>
-					<AntDesign name="pluscircleo" size={24} color={Colors.primaryLightColor} />
+				<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.navigate('ChatHighlight')}>
+					<Octicons name="info" size={24} color={Colors.primaryLightColor} />
 				</TouchableOpacity>
 			</Header>
 

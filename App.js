@@ -28,8 +28,12 @@ import ChatHighlightsScreen from './screens/Inbox/HighLights';
 import RatingScreen from './screens/RatingCircle';
 import InterestScreen from './screens/Interests';
 import PricePlanScreen from './screens/PricePlan';
+import ConfirmationScreen from './screens/Confirmation';
+import PhoneScreen from './screens/Phone';
+import VisitorsScreen from './screens/Visitors';
+import ScoreScreen from './screens/Score';
 
-import CurrentScreen from './screens/Camera';
+import CurrentScreen from './screens/World';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
@@ -67,6 +71,8 @@ export default class App extends React.Component {
 							<Stack.Screen name="Splash" component={Splash} />
 							<Stack.Screen name="OnBoarding" component={OnBoarding} />
 							<Stack.Screen name="Register" component={Register} />
+							<Stack.Screen name="Phone" component={PhoneScreen} />
+							<Stack.Screen name="Confirmation" component={ConfirmationScreen} />
 							<Stack.Screen name="Login" component={Login} />
 							<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
 							<Stack.Screen name="ResetPassword" component={ResetPassword} />
@@ -84,6 +90,8 @@ export default class App extends React.Component {
 							<Stack.Screen name="Rating" component={RatingScreen} />
 							<Stack.Screen name="Interest" component={InterestScreen} />
 							<Stack.Screen name="PricePlan" component={PricePlanScreen} />
+							<Stack.Screen name="Visitor" component={VisitorsScreen} />
+							<Stack.Screen name="Score" component={ScoreScreen} />
 						</Stack.Navigator>
 					</NavigationContainer>
 				</View>
