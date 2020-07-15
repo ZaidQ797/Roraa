@@ -4,12 +4,14 @@ import cstyle from '../../constants/cstyles';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import StarsList from './StarList';
 import styles from './styles';
+import {ScrollView} from "react-native-gesture-handler";
 
 const dummyData = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p', 'q' ];
 
 function TopStars() {
 	return (
 		<Fragment>
+			<ScrollView style={cstyle.container} showsVerticalScrollIndicator={false}>
 			<View style={cstyle.py_10}>
 				<Text style={styles.mainText}>Top 200 Stars</Text>
 			</View>
@@ -54,6 +56,7 @@ function TopStars() {
 				</Grid>
 			</View>
 			<View>{dummyData.map((l, index) => <StarsList key={l} index={index} />)}</View>
+			</ScrollView>
 		</Fragment>
 	);
 }

@@ -8,7 +8,7 @@ import Visitor from '../Visitors/NewVistor';
 import styles from './Styles';
 import ProfilePic from '../../assets/images/profile.png';
 
-function Info() {
+function Info({navigation}) {
 	return (
 		<ScrollView style={[ cstyles.container, cstyles.padder, { paddingTop: 0 } ]}>
 			<View style={[ cstyles.row, cstyles.flexBetweeen, cstyles.itemsCenter, cstyles.my_15, cstyles.mt_25 ]}>
@@ -24,7 +24,7 @@ function Info() {
 			</View>
 			<View style={[ cstyles.row, cstyles.my_15 ]}>
 				<View>
-					<Image source={ProfilePic} />
+					<Image style={{width: 170}} source={ProfilePic} />
 				</View>
 				<View style={[ cstyles.flexCenter, cstyles.itemsCenter, cstyles.container ]}>
 					<View style={[ cstyles.itemsCenter, cstyles.flexCenter, cstyles.my_5 ]}>

@@ -28,7 +28,7 @@ export default class Splash extends React.Component {
 					<TouchableOpacity
 						style={[ cstyles.button, cstyles.roundEdgeButton ]}
 						onPress={() => {
-							navigation.navigate('Login');
+							navigation.navigate('Register');
 						}}
 					>
 						<Text style={cstyles.buttonText}>GET STARTED</Text>

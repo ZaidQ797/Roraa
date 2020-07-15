@@ -21,10 +21,10 @@ import SettingScreen from './screens/Setting';
 import ProfileDetailScreen from './screens/ProfileDetail';
 import WorldScreen from './screens/World';
 import AddGoalScreen from './screens/AddGoal';
+import AddWorldScreen from './screens/AddWorld';
 import AddTalentScreen from './screens/AddTalent';
 import AddInterestScreen from './screens/AddInterest';
 import SharingScreen from './screens/Sharing';
-import ChatHighlightsScreen from './screens/Inbox/HighLights';
 import RatingScreen from './screens/RatingCircle';
 import InterestScreen from './screens/Interests';
 import PricePlanScreen from './screens/PricePlan';
@@ -32,8 +32,11 @@ import ConfirmationScreen from './screens/Confirmation';
 import PhoneScreen from './screens/Phone';
 import VisitorsScreen from './screens/Visitors';
 import ScoreScreen from './screens/Score';
+import ChatScreen from './screens/Inbox/Chat';
+import DiscoverScreen from './screens/Discover';
+import StoryScreen from './screens/Story';
 
-import CurrentScreen from './screens/World';
+import CurrentScreen from './screens/Phone';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
@@ -80,18 +83,22 @@ export default class App extends React.Component {
 							<Stack.Screen name="Root" children={DrawerNavigator} />
 							<Stack.Screen name="Messages" component={MessagesScreen} />
 							<Stack.Screen name="Setting" component={SettingScreen} />
-							<Stack.Screen name="ChatHighlight" component={ChatHighlightsScreen} />
+							<Stack.Screen name="Chat" component={ChatScreen} />
 							<Stack.Screen name="Share" component={SharingScreen} />
 							<Stack.Screen name="World" component={WorldScreen} />
 							<Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
 							<Stack.Screen name="AddGoal" component={AddGoalScreen} />
 							<Stack.Screen name="AddTalent" component={AddTalentScreen} />
+							<Stack.Screen name="AddWorld" component={AddWorldScreen} />
 							<Stack.Screen name="AddInterest" component={AddInterestScreen} />
 							<Stack.Screen name="Rating" component={RatingScreen} />
 							<Stack.Screen name="Interest" component={InterestScreen} />
 							<Stack.Screen name="PricePlan" component={PricePlanScreen} />
 							<Stack.Screen name="Visitor" component={VisitorsScreen} />
 							<Stack.Screen name="Score" component={ScoreScreen} />
+							<Stack.Screen name="Discover" component={DiscoverScreen} />
+							<Stack.Screen name="Story" component={StoryScreen} />
+
 						</Stack.Navigator>
 					</NavigationContainer>
 				</View>

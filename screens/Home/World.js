@@ -38,6 +38,7 @@ function World() {
 		<Fragment>
 			<FlatList
 				data={dummyData}
+				showsVerticalScrollIndicator={false}
 				keyExtractor={(item) => item.views}
 				renderItem={({ item }) => (
 					<Card style={[ { elevation: 3 }, cstyles.my_10 ]}>

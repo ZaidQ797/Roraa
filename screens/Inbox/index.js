@@ -54,12 +54,12 @@ function Inbox({ navigation }) {
 							data={messages}
 							horizontal
 							showsHorizontalScrollIndicator={false}
-							renderItem={({ item }) => <Avatar onPress={() => navigation.navigate('Messages')} />}
+							renderItem={({ item }) => <Avatar onPress={() => navigation.navigate('Chat')} />}
 							keyExtractor={(item) => item}
 						/>
 					</View>
 					<View style={[ cstyles.padder ]}>
-						{messages.map((m) => <MessageList onPress={() => navigation.navigate('Messages')} key={m} />)}
+						{messages.map((m) => <MessageList onPress={() => navigation.navigate('Chat')} key={m} />)}
 					</View>
 				</ScrollView>
 			</SafeAreaView>

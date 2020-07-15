@@ -12,11 +12,11 @@ import { Thumbnail } from 'native-base';
 
 const dummyData = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k' ];
 
-function World({ navigaton }) {
+function World({ navigation }) {
 	return (
-		<ScrollView style={cstyles.container}>
+		<ScrollView style={[cstyles.container,{paddingBottom: 50}]}>
 			<View style={[ cstyles.container, styles.logoContainer, cstyles.padder ]}>
-				<TouchableOpacity style={styles.button} onPress={() => NavigationPreloadManager.navigate('Interest')}>
+				<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddWorld')}>
 					<Text style={styles.butnText}>Add World</Text>
 				</TouchableOpacity>
 			</View>

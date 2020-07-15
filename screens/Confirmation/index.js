@@ -11,6 +11,7 @@ import styles, {
 	DEFAULT_CELL_BG_COLOR,
 	NOT_EMPTY_CELL_BG_COLOR
 } from './styles';
+import cstyles from "../../constants/cstyles";
 
 const { Value, Text: AnimatedText } = Animated;
 
@@ -86,6 +87,7 @@ const AnimatedExample = () => {
 
 	return (
 		<SafeAreaView style={styles.root}>
+			<View style={cstyles.padder}>
 			<Text style={styles.title}>Enter your code!</Text>
 			<Text style={styles.phoneNo}>+1-604-999-1234</Text>
 			<CodeField
@@ -104,6 +106,7 @@ const AnimatedExample = () => {
 				<Text style={styles.gradientText}>I didn't recieve a code</Text>
 			</TouchableOpacity>
 			<Text style={styles.subTitle}>Tap continue to accept facebook's terms.</Text>
+			</View>
 		</SafeAreaView>
 	);
 };

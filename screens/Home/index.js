@@ -17,7 +17,7 @@ function Home({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyle.container, cstyle.bg_white ]}>
-				<Header noShadow style={{ backgroundColor: 'transparent' }}>
+				<Header noShadow style={{ backgroundColor: 'transparent', borderBottomWidth:0 }}>
 					<Left>
 						<Entypo name="chevron-small-left" size={24} color="black" />
 					</Left>
@@ -62,7 +62,7 @@ function Home({ navigation }) {
 						</TouchableOpacity>
 					</View>
 				</View>
-				<ScrollView style={[ cstyle.container, cstyle.padder, { paddingTop: 0 } ]}>
+				<View style={[ cstyle.container, cstyle.padder, { paddingTop: 0 } ]}>
 					{view === 'world' ? (
 						<World />
 					) : view === 'show' ? (
@@ -72,7 +72,7 @@ function Home({ navigation }) {
 					) : (
 						<TopStars />
 					)}
-				</ScrollView>
+				</View>
 			</SafeAreaView>
 		</Fragment>
 	);

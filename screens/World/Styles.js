@@ -13,9 +13,10 @@ export default StyleSheet.create({
 	},
 	activeButton: {
 		color: '#f5656b',
-		borderBottomWidth: 4,
-		borderRadius: 50,
-		borderBottomColor: '#f5656b',
+		fontWeight: 'bold'
+	},
+	inActiveButton:{
+		color: 'gray',
 		fontWeight: 'bold'
 	},
 	buttonStyle: {

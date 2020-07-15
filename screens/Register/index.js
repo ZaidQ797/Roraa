@@ -12,15 +12,13 @@ export default function Register(props) {
 	return (
 		<SafeAreaView style={cstyles.container}>
 			<Container>
-				<ScrollView style={cstyles.container}>
 					<Tabs
 						tabBarUnderlineStyle={{ backgroundColor: Colors.secondryGradient, height: 1.5 }}
-						tabBarPosition="top"
 						onChangeTab={({ i }) => setActiveTab(i)}
 					>
 						<Tab
 							heading={
-								<TabHeading style={{ backgroundColor: '#fff' }}>
+								<TabHeading style={{ backgroundColor: '#fff', paddingTop: 10 }}>
 									<Text style={[ actibeTab === 0 ? styles.activeText : styles.inActiveText ]}>
 										Personal
 									</Text>
@@ -31,7 +29,7 @@ export default function Register(props) {
 						</Tab>
 						<Tab
 							heading={
-								<TabHeading style={{ backgroundColor: '#fff' }}>
+								<TabHeading style={{ backgroundColor: '#fff', paddingTop: 10 }}>
 									<Text style={[ actibeTab === 1 ? styles.activeText : styles.inActiveText ]}>
 										Business
 									</Text>
@@ -41,7 +39,6 @@ export default function Register(props) {
 							<BusinessTab {...props} />
 						</Tab>
 					</Tabs>
-				</ScrollView>
 			</Container>
 		</SafeAreaView>
 	);
@@ -52,14 +49,12 @@ const styles = StyleSheet.create({
 		color: Colors.secondryGradient,
 		fontSize: 16,
 		fontWeight: 'bold',
-		alignItems: 'center',
-		justifyContent: 'center'
+
 	},
 	inActiveText: {
-		color: Colors.secondryGradient,
+		color: "black",
 		fontSize: 16,
 		fontWeight: 'bold',
-		alignItems: 'center',
-		justifyContent: 'center'
+
 	}
 });

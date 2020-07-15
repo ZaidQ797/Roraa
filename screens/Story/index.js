@@ -48,8 +48,8 @@ function MyStory({ navigation }) {
 						</Text>
 					</View>
 				</View>
-				<View style={{ alignSelf: 'flex-end' }}>
-					<TouchableOpacity style={styles.iconButton}>
+				<View style={{ alignSelf: 'flex-end', paddingBottom: 40 }}>
+					<TouchableOpacity style={styles.iconButton} onPress={()=> navigation.goBack()}>
 						<FontAwesome name="chevron-left" size={24} color="white" />
 					</TouchableOpacity>
 				</View>

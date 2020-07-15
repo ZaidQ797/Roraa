@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Colors from '../constants/Colors';
 import { Feather } from '@expo/vector-icons';
 import { Drawer } from 'react-native-paper';
+import {List} from 'react-native-paper';
 
 function DrawerContent(props) {
 	return (
@@ -28,26 +29,37 @@ function DrawerContent(props) {
 							</View>
 						</View>
 					</Drawer.Section>
+					<List.Section style={styles.sectionStyle}>
+						<List.Accordion style={styles.listStyle} titleStyle={styles.labelStyle}  title="Profile">
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle}  title="Info" onPress={() => props.navigation.navigate('World')} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="World" onPress={() => props.navigation.navigate('World')} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Story" onPress={() => props.navigation.navigate('Story')} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Show" onPress={() => props.navigation.navigate('World')} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Roraa Gold" onPress={() => props.navigation.navigate('World')} />
+						</List.Accordion>
+					</List.Section>
+					<List.Section style={styles.sectionStyle}>
+						<List.Accordion style={styles.listStyle} titleStyle={styles.labelStyle}  title="Roraa Ads">
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle}  title="Create a Campaign" />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Budget and Schedule" />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Target Audience" />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Target Audience" />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Payment" />
+						</List.Accordion>
+					</List.Section>
+					<List.Section style={styles.sectionStyle}>
+						<List.Accordion style={styles.listStyle} titleStyle={styles.labelStyle}  title="Payments">
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle}  title="Pricing Plan" onPress={() => props.navigation.navigate('PricePlan')} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Plan purchased" onPress={() => props.navigation.navigate('PricePlan')} />
+						</List.Accordion>
+					</List.Section>
 					<DrawerItem
-						style={styles.itemStyle}
-						label="Profile"
-						labelStyle={styles.labelStyle}
-						onPress={() => props.navigation.navigate('World')}
-					/>
-					<DrawerItem style={styles.itemStyle} label="Roraa Ads" labelStyle={styles.labelStyle} />
-					<DrawerItem
-						style={styles.itemStyle}
-						label="Payments"
-						labelStyle={styles.labelStyle}
-						onPress={() => props.navigation.navigate('PricePlan')}
-					/>
-					<DrawerItem
-						style={styles.itemStyle}
+						style={styles.drawerItemStyle}
 						label="Settings"
 						labelStyle={styles.labelStyle}
 						onPress={() => props.navigation.navigate('Setting')}
 					/>
-					<DrawerItem style={styles.itemStyle} label="Logout" labelStyle={styles.labelStyle} />
+					<DrawerItem style={styles.drawerItemStyle} label="Logout" labelStyle={styles.labelStyle} onPress={()=> props.navigation.navigate("Splash")} />
 				</DrawerContentScrollView>
 			</LinearGradient>
 		</SafeAreaView>
@@ -81,11 +93,30 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: 'bold'
 	},
+	drawerItemStyle:{
+		marginTop: 0,
+		marginBottom: 0,
+		padding:0,
+		paddingLeft: 30,
+		justifyContent: 'center'
+	},
+	sectionStyle:{
+		marginTop: 0,
+		marginBottom: 0,
+		padding:0,
+	},
+	listStyle:{
+		marginTop: 0,
+		marginBottom: 0,
+		padding:0,
+		paddingLeft: 40,
+		justifyContent: 'center',
+	},
 	itemStyle: {
 		marginTop: 0,
 		marginBottom: 0,
-		paddingLeft: 30,
-		height: 35,
+		padding:0,
+		paddingLeft: 55,
 		justifyContent: 'center'
 	}
 });

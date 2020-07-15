@@ -11,42 +11,6 @@ import ButtonGradient from '../../components/ButtonGradient';
 function HighLights({ navigation }) {
 	const [ view, setView ] = useState('highlights');
 	return (
-		<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
-			<Header noShadow style={{ backgroundColor: Colors.lightGray }}>
-				<Left>
-					<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.goBack()}>
-						<Entypo name="chevron-small-left" size={24} color="black" />
-					</TouchableOpacity>
-				</Left>
-				<Body>
-					<Text style={styles.mainText}>Mezna</Text>
-				</Body>
-			</Header>
-			<View
-				style={[ { backgroundColor: Colors.lightGray, height: 50 }, cstyles.row, cstyles.px_10, cstyles.py_10 ]}
-			>
-				<TouchableOpacity
-					style={[ styles.headerButn, view === 'chat' && { borderBottomColor: Colors.secondryGradient } ]}
-					onPress={() => setView('chat')}
-				>
-					<Text style={[ styles.headerButnText, view === 'chat' && { color: Colors.secondryGradient } ]}>
-						Chat
-					</Text>
-				</TouchableOpacity>
-				<TouchableOpacity
-					style={[
-						styles.headerButn,
-						view === 'highlights' && { borderBottomColor: Colors.secondryGradient }
-					]}
-					onPress={() => setView('highlights')}
-				>
-					<Text
-						style={[ styles.headerButnText, view === 'highlights' && { color: Colors.secondryGradient } ]}
-					>
-						Highlights
-					</Text>
-				</TouchableOpacity>
-			</View>
 			<ScrollView style={[ cstyles.container, cstyles.padder ]}>
 				<View style={[ cstyles.itemsCenter, cstyles.flexCenter ]}>
 					<View style={styles.circle}>
@@ -101,7 +65,6 @@ function HighLights({ navigation }) {
 					<ButtonGradient text="Block" />
 				</View>
 			</ScrollView>
-		</SafeAreaView>
 	);
 }
 

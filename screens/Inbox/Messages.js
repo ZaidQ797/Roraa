@@ -18,17 +18,17 @@ function Messages({ navigation }) {
 				noShadow
 				style={[ { backgroundColor: 'transparent' }, cstyles.row, cstyles.itemsCenter, cstyles.flexBetweeen ]}
 			>
-				<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.goBack()}>
-					<Entypo name="chevron-small-left" size={24} color="black" />
-				</TouchableOpacity>
+				{/*<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.goBack()}>*/}
+				{/*	<Entypo name="chevron-small-left" size={24} color="black" />*/}
+				{/*</TouchableOpacity>*/}
 				<Item rounded style={[ styles.input ]}>
 					<Icon active name="search" />
 					<Input placeholder="Search" />
 				</Item>
 
-				<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.navigate('ChatHighlight')}>
-					<Octicons name="info" size={24} color={Colors.primaryLightColor} />
-				</TouchableOpacity>
+				{/*<TouchableOpacity style={cstyles.mx_10} onPress={() => navigation.navigate('ChatHighlight')}>*/}
+				{/*	<Octicons name="info" size={24} color={Colors.primaryLightColor} />*/}
+				{/*</TouchableOpacity>*/}
 			</Header>
 
 			<ScrollView style={[ cstyles.container, cstyles.padder ]}>

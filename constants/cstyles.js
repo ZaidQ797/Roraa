@@ -19,13 +19,15 @@ export default StyleSheet.create({
 	boxShadow: {
 		shadowColor: '#f5f5f5',
 		shadowOffset: {
-			width: 0,
+			width: 1,
 			height: 2
 		},
 		shadowOpacity: 0.23,
 		shadowRadius: 2.62,
 
-		elevation: 2
+		elevation: 2,
+		zIndex: 999,
+		backgroundColor : "#0000"
 	},
 	flexWrap: {
 		flexWrap: 'wrap'

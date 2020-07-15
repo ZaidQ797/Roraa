@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import cstyles from '../../constants/cstyles';
 import Colors from '../../constants/Colors';
@@ -21,7 +21,7 @@ function RoraaGold({ navigation }) {
 				</View>
 			</View>
 			<TouchableOpacity
-				style={[ styles.smBox, cstyles.row, styles.box_1, cstyles.boxShadow ]}
+				style={[ Platform.OS === 'ios' ? styles.smBoxIos : styles.smBox, cstyles.row, styles.box_1, cstyles.boxShadow ]}
 				onPress={() => navigation.navigate('Score')}
 			>
 				<View>
@@ -33,7 +33,7 @@ function RoraaGold({ navigation }) {
 				</View>
 			</TouchableOpacity>
 			<TouchableOpacity
-				style={[ styles.smBox, cstyles.row, styles.box_2, cstyles.boxShadow ]}
+				style={[ Platform.OS === 'ios' ? styles.smBoxIos : styles.smBox, cstyles.row, styles.box_2, cstyles.boxShadow ]}
 				onPress={() => navigation.navigate('Rating')}
 			>
 				<View>
@@ -45,7 +45,7 @@ function RoraaGold({ navigation }) {
 				</View>
 			</TouchableOpacity>
 			<TouchableOpacity
-				style={[ styles.smBox, cstyles.row, styles.box_3, cstyles.boxShadow, { marginBottom: 50 } ]}
+				style={[ Platform.OS === 'ios' ? styles.smBoxIos : styles.smBox, cstyles.row, styles.box_3, cstyles.boxShadow, { marginBottom: 50 } ]}
 				onPress={() => navigation.navigate('Visitor')}
 			>
 				<View>
@@ -85,7 +85,15 @@ const styles = StyleSheet.create({
 		marginVertical: 10,
 		paddingVertical: 20,
 		paddingHorizontal: 20,
-		borderRadius: 20
+		borderRadius: 20,
+	},
+	smBoxIos:{
+		marginVertical: 10,
+		paddingVertical: 20,
+		paddingHorizontal: 20,
+		borderRadius: 20,
+		borderWidth: 0.5,
+		borderColor: "lightgray",
 	},
 	box_1: {
 		borderRightWidth: 10,

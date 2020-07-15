@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, Text } from 'react-native';
+import {Header, ScrollableTab, Tabs, Tab, Left, TabHeading, Body, Right} from 'native-base';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import cstyles from '../../constants/cstyles';
 
@@ -10,40 +11,72 @@ import MyStory from '../Story';
 import World from './World';
 import RoraaGold from './RoraaGold';
 import ShowScreen from './Show';
+import {Entypo} from "@expo/vector-icons";
+import Colors from "../../constants/Colors";
 
 function Profile(props) {
-	const [ view, setView ] = useState('info');
+	const [ actibeTab, setActiveTab ] = useState(0);
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
-				<View style={[ cstyles.row, cstyles.flexBetweeen, cstyles.padder ]}>
-					<TouchableOpacity onPress={() => setView('info')}>
-						<Text style={[ styles.buttonText, view === 'info' && styles.activeButton ]}>INFO</Text>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={() => setView('world')}>
-						<Text style={[ styles.buttonText, view === 'world' && styles.activeButton ]}>WORLD</Text>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={() => setView('story')}>
-						<Text style={[ styles.buttonText, view === 'story' && styles.activeButton ]}>STORY</Text>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={() => setView('show')}>
-						<Text style={[ styles.buttonText, view === 'show' && styles.activeButton ]}>SHOW</Text>
-					</TouchableOpacity>
-					<TouchableOpacity onPress={() => setView('roraa')}>
-						<Text style={[ styles.buttonText, view === 'roraa' && styles.activeButton ]}>RORAA GOLD</Text>
-					</TouchableOpacity>
-				</View>
-				{view === 'info' ? (
-					<Info {...props} />
-				) : view === 'story' ? (
-					<MyStory {...props} />
-				) : view === 'world' ? (
-					<World {...props} />
-				) : view === 'show' ? (
-					<ShowScreen {...props} />
-				) : (
-					<RoraaGold {...props} />
-				)}
+				<Header noShadow style={{backgroundColor:"transparent"}} hasTabs>
+					<Left>
+						<TouchableOpacity onPress={() => props.navigation.goBack()}>
+							<Entypo name="chevron-small-left" size={24} color="black" />
+						</TouchableOpacity>
+					</Left>
+					<Body/>
+					<Right/>
+				</Header>
+				<Tabs
+					tabBarBackgroundColor="transparent"
+					tabBarActiveTextColor="red"
+					renderTabBar={()=> <ScrollableTab />}
+					tabBarUnderlineStyle={{ backgroundColor: Colors.secondryGradient, height: 2 }}
+					onChangeTab={({ i }) => setActiveTab(i)}
+				>
+					<Tab
+						heading={
+							<TabHeading style={{ backgroundColor: '#fff' }}>
+								<Text style={[actibeTab === 0 ? styles.activeButton : styles.inActiveButton]}>
+									INFO
+								</Text>
+							</TabHeading>
+						}
+						 >
+						<Info {...props} />
+					</Tab>
+					<Tab
+						 heading={
+							 <TabHeading style={{ backgroundColor: '#fff' }}>
+								 <Text style={[actibeTab === 1 ? styles.activeButton : styles.inActiveButton]}>
+									 WORLD
+								 </Text>
+							 </TabHeading>
+						 }>
+						<World {...props} />
+					</Tab>
+					<Tab
+						 heading={
+							 <TabHeading style={{ backgroundColor: '#fff'}}>
+								 <Text style={[actibeTab === 2 ? styles.activeButton : styles.inActiveButton]}>
+									 SHOW
+								 </Text>
+							 </TabHeading>
+						 }>
+						<ShowScreen {...props} />
+					</Tab>
+					<Tab
+						 heading={
+							 <TabHeading style={{ backgroundColor: '#fff' }}>
+								 <Text style={[actibeTab === 3 ? styles.activeButton : styles.inActiveButton]}>
+									 RORAA GOLD
+								 </Text>
+							 </TabHeading>
+						 }>
+						<RoraaGold {...props} />
+					</Tab>
+				</Tabs>
 			</SafeAreaView>
 		</Fragment>
 	);

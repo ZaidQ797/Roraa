@@ -2,13 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
-import { FontAwesome, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import {  Ionicons, MaterialIcons } from '@expo/vector-icons';
 import cstyles from '../../constants/cstyles';
-import Layout from '../../constants/Layout';
 import { ScrollView } from 'react-native-gesture-handler';
 // import * as ImagePicker from 'expo-image-picker';
 
-export default function App() {
+export default function App({navigation}) {
 	const [ permission, setPermission ] = useState(null);
 	const [ cameraType, setCameraType ] = useState('photo');
 	const [ type, setType ] = useState(Camera.Constants.Type.back);
@@ -29,9 +28,9 @@ export default function App() {
 			}
 		};
 		if (permission === null) {
-			getPermissions();
+			  getPermissions();
 		}
-	}, []);
+	}, [navigation]);
 
 	const handleCameraType = () => {
 		if (type === Camera.Constants.Type.back) {
@@ -52,50 +51,52 @@ export default function App() {
 			mediaTypes: ImagePicker.MediaTypeOptions.Images
 		});
 	};
-
-	return (
-		<View style={cstyles.container}>
-			<Camera style={cstyles.container} type={type} ref={camera}>
-				<View style={styles.bottomContainer}>
-					<View style={styles.bottom}>
-						<ScrollView horizontal style={styles.textContainer}>
-							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('photo')}>
-								<Text style={[ cameraType === 'photo' ? styles.activeTextButn : styles.textStyle ]}>
-									Photo
-								</Text>
-							</TouchableOpacity>
-							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('dual')}>
-								<Text style={[ cameraType === 'dual' ? styles.activeTextButn : styles.textStyle ]}>
-									Dual
-								</Text>
-							</TouchableOpacity>
-							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('gif')}>
-								<Text style={[ cameraType === 'gif' ? styles.activeTextButn : styles.textStyle ]}>
-									GIF
-								</Text>
-							</TouchableOpacity>
-							<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('magic')}>
-								<Text style={[ cameraType === 'magic' ? styles.activeTextButn : styles.textStyle ]}>
-									Magic
-								</Text>
-							</TouchableOpacity>
-						</ScrollView>
-						<View style={styles.iconContainer}>
-							<TouchableOpacity style={styles.sideButn} onPress={() => pickImage()}>
-								<MaterialIcons name="photo-library" size={30} color="white" />
-							</TouchableOpacity>
-							<TouchableOpacity style={styles.takePic} onPress={() => takePicture()}>
-								<View style={styles.takePicCircle} />
-							</TouchableOpacity>
-							<TouchableOpacity style={styles.sideButn} onPress={() => handleCameraType()}>
-								<Ionicons name="ios-reverse-camera" size={35} color="white" />
-							</TouchableOpacity>
+		return (
+			<View style={cstyles.container}>
+				<Camera style={cstyles.container} type={type} ref={camera}>
+					<View style={styles.bottomContainer}>
+						<View style={styles.bottom}>
+							<ScrollView horizontal style={styles.textContainer}>
+								<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('photo')}>
+									<Text style={[cameraType === 'photo' ? styles.activeTextButn : styles.textStyle]}>
+										Photo
+									</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('dual')}>
+									<Text style={[cameraType === 'dual' ? styles.activeTextButn : styles.textStyle]}>
+										Dual
+									</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('gif')}>
+									<Text style={[cameraType === 'gif' ? styles.activeTextButn : styles.textStyle]}>
+										GIF
+									</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.textButn} onPress={() => setCameraType('magic')}>
+									<Text style={[cameraType === 'magic' ? styles.activeTextButn : styles.textStyle]}>
+										Magic
+									</Text>
+								</TouchableOpacity>
+							</ScrollView>
+							<View style={styles.iconContainer}>
+								<TouchableOpacity style={styles.sideButn} onPress={() => pickImage()}>
+									<MaterialIcons name="photo-library" size={30} color="white"/>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.takePic}>
+									<View style={styles.takePicCircle}/>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.sideButn} onPress={() => handleCameraType()}>
+									<Ionicons name="ios-reverse-camera" size={35} color="white"/>
+								</TouchableOpacity>
+							</View>
 						</View>
 					</View>
-				</View>
-			</Camera>
-		</View>
-	);
+				</Camera>
+			</View>
+		);
+
+
+
 }
 
 const styles = StyleSheet.create({
@@ -138,7 +139,8 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		color: 'white',
 		borderBottomColor: 'white',
-		borderBottomWidth: 1
+		borderBottomWidth: 1,
+		width:"100%"
 	},
 	takePic: {
 		width: 65,

@@ -38,13 +38,13 @@ export default class Login extends React.Component {
 							/>
 						</View>
 						<TouchableOpacity
-							style={[ cstyles.button, cstyles.row, { height: 10 } ]}
+							style={[ cstyles.row ]}
 							onPress={() => navigation.navigate('ForgotPassword')}
 						>
 							<Text style={cstyles.linkDarkText}>Forgot Password?</Text>
 						</TouchableOpacity>
 						<TouchableOpacity
-							style={[ cstyles.button, cstyles.row, { height: 10, marginTop: 15 } ]}
+							style={[ cstyles.row, { marginTop: 15 } ]}
 							onPress={() => navigation.navigate('Register')}
 						>
 							<Text style={cstyles.linkDarkText}>You don't have an account?</Text>

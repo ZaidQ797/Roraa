@@ -11,10 +11,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const dummyData = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k' ];
 
-function Discover() {
+function Discover({navigation}) {
 	return (
 		<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
-			<ScrollView style={cstyles.container}>
+			<ScrollView style={[cstyles.container]}>
 				<View style={[ cstyles.container, cstyles.padder, styles.logoContainer ]}>
 					<Image source={Logo} />
 					<Text style={styles.mainText}>Discover Romance.</Text>
@@ -33,7 +33,7 @@ function Discover() {
 						renderItem={({ item }) => <View style={[ styles.imgCard ]} />}
 					/>
 				</View>
-				<View style={[ cstyles.row, cstyles.flexBetweeen, cstyles.px_20 ]}>
+				<View style={[ cstyles.row, cstyles.flexBetweeen, cstyles.px_20, {paddingBottom: 40} ]}>
 					<TouchableOpacity>
 						<LinearGradient
 							colors={[ Colors.primaryGradient, Colors.secondryGradient ]}
@@ -45,7 +45,7 @@ function Discover() {
 						</LinearGradient>
 					</TouchableOpacity>
 
-					<ButtonGradient text="Next" />
+					<ButtonGradient text="Next" onPress={()=> navigation.navigate("Root")} />
 				</View>
 			</ScrollView>
 		</SafeAreaView>
@@ -56,7 +56,7 @@ export default Discover;
 
 const styles = StyleSheet.create({
 	logoContainer: {
-		paddingTop: '20%',
+		paddingTop: '13%',
 		justifyContent: 'center',
 		alignItems: 'center'
 	},

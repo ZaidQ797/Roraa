@@ -97,7 +97,7 @@ function SelectStyles({ navigation }) {
 						<ButtonGradient
 							text="Next"
 							style={{ marginTop: 20 }}
-							onPress={() => navigation.navigate('Root')}
+							onPress={() => navigation.navigate('Discover')}
 						/>
 					</View>
 				</ScrollView>
@@ -145,6 +145,6 @@ const styles = StyleSheet.create({
 	gradiant: {
 		paddingVertical: 7,
 		paddingHorizontal: 20,
-		borderRadius: 40
+		borderRadius: 15
 	}
 });

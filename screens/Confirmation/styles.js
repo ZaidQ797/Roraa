@@ -43,7 +43,6 @@ const styles = StyleSheet.create({
 
 	root: {
 		minHeight: 800,
-		padding: 20
 	},
 	title: {
 		paddingTop: 50,

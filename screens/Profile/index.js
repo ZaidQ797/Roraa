@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Header, Right, Left } from 'native-base';
+import { Header, Right, Left, Body } from 'native-base';
 import { View, SafeAreaView, StyleSheet, Text, Image } from 'react-native';
 import cstyles from '../../constants/cstyles';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
@@ -27,10 +27,11 @@ function Profile({ navigation }) {
 	]);
 	return (
 		<SafeAreaView style={styles.container}>
-			<Header noShadow style={{ backgroundColor: 'transparent' }}>
+			<Header noShadow style={{ backgroundColor: 'transparent', borderBottomWidth:0 }}>
 				<Left>
 					<Entypo name="chevron-small-left" size={24} color="black" />
 				</Left>
+				<Body/>
 				<Right>
 					<TouchableOpacity onPress={() => navigation.toggleDrawer()}>
 						<Ionicons name="ios-menu" size={24} color="black" />

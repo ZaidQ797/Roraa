@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { SafeAreaView, TextInput, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
-import { Header, Left, Body, Icon, Item, Input } from 'native-base';
+import { Header, Left, Body, Item, Input, Right } from 'native-base';
 import cstyles from '../../constants/cstyles';
 import { Entypo, AntDesign, EvilIcons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -9,7 +9,7 @@ function AddInterest({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
-				<Header noShadow style={{ backgroundColor: 'transparent' }}>
+				<Header noShadow style={{ backgroundColor: 'transparent',borderBottomWidth: 0 }}>
 					<Left>
 						<TouchableOpacity onPress={() => navigation.goBack()}>
 							<Entypo name="chevron-small-left" size={24} color="black" />
@@ -18,6 +18,7 @@ function AddInterest({ navigation }) {
 					<Body>
 						<Text style={styles.mainText}>New Interest</Text>
 					</Body>
+					<Right/>
 				</Header>
 				<ScrollView style={[ cstyles.container, cstyles.padder ]}>
 					<View style={cstyles.container}>

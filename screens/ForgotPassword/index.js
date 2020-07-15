@@ -33,7 +33,7 @@ export default class ForgotPassword extends React.Component {
                             <InputUnderLineIcon placeholder="Email" icon="email" />
                             <ButtonGradient text="SUBMIT" style={{ marginTop: 5 }} />
                         </View>
-                        <TouchableOpacity style={[cstyles.button, cstyles.row, { height: 10, marginTop: 0 }]} onPress={() => navigation.navigate("Login")}>
+                        <TouchableOpacity style={[ cstyles.row, { marginTop: 0 }]} onPress={() => navigation.navigate("Login")}>
                             <Text style={cstyles.linkDarkText}>Back to</Text>
                             <Text style={[cstyles.linkDarkText, { color: Colors.primaryColor }]}>{" "}Login</Text>
                         </TouchableOpacity>

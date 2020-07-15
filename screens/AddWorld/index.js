@@ -2,14 +2,14 @@ import React, { Fragment, useState } from 'react';
 import { SafeAreaView, TextInput, StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { Header, Left, Body, Icon, Item, Input, Right } from 'native-base';
 import cstyles from '../../constants/cstyles';
-import { Entypo, AntDesign, EvilIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Entypo, AntDesign, EvilIcons, Ionicons } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 
 function AddGoal({ navigation }) {
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
-				<Header noShadow style={{ backgroundColor: 'transparent' }}>
+				<Header noShadow style={{ backgroundColor: 'transparent',borderBottomWidth: 0 }}>
 					<Left>
 						<TouchableOpacity onPress={() => navigation.goBack()}>
 							<Entypo name="chevron-small-left" size={24} color="black" />
@@ -18,6 +18,7 @@ function AddGoal({ navigation }) {
 					<Body>
 						<Text style={styles.mainText}>New World</Text>
 					</Body>
+					<Right/>
 				</Header>
 				<ScrollView style={[ cstyles.container, cstyles.padder ]}>
 					<View style={cstyles.container}>
@@ -34,7 +35,7 @@ function AddGoal({ navigation }) {
 							</View>
 						</TouchableOpacity>
 						<Item style={[ styles.boxShadow, styles.input, cstyles.my_10 ]}>
-							<MaterialCommunityIcons name="arch" size={20} color="#f5656b" />
+							<Ionicons name="ios-globe" size={24} color="#f5656b" />
 							<Input multiline placeholder="write something" />
 						</Item>
 						<View style={(cstyles.my_20, { marginBottom: 30 })}>

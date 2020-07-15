@@ -40,50 +40,52 @@ const dummyData = [
 ];
 function Show() {
 	return (
-		<Fragment>
+		<Fragment >
 			<View style={cstyles.padder}>
-				<DeckSwiper
-					dataSource={dummyData}
-					renderItem={(item) => (
-						<Card style={[ { elevation: 3 }, cstyles.my_10 ]}>
-							<CardItem>
-								<Left>
-									<Thumbnail small source={{ uri: item.profile }} />
-									<Body>
-										<Text>{item.userName}</Text>
-										<Text style={styles.storyText}>{item.time}</Text>
-									</Body>
-								</Left>
+			<FlatList
+				data={dummyData}
+				showsVerticalScrollIndicator={false}
+				keyExtractor={(item) => item.views}
+				renderItem={({ item }) => (
+					<Card style={[ { elevation: 3 }, cstyles.my_10 ]}>
+						<CardItem>
+							<Left>
+								<Thumbnail small source={{ uri: item.profile }} />
+								<Body>
+									<Text>{item.userName}</Text>
+									<Text style={styles.storyText}>{item.time}</Text>
+								</Body>
+							</Left>
+							<TouchableOpacity>
+								<EvilIcons name="heart" size={20} color="gray" />
+							</TouchableOpacity>
+						</CardItem>
+						<CardItem cardBody>
+							<Image style={{ height: 200, flex: 1 }} source={{ uri: item.image }} />
+						</CardItem>
+						<CardItem style={[ cstyles.row, cstyles.flexBetweeen, cstyles.itemsCenter ]}>
+							<View style={[ cstyles.row, cstyles.itemsCenter ]}>
 								<TouchableOpacity>
 									<EvilIcons name="heart" size={20} color="gray" />
 								</TouchableOpacity>
-							</CardItem>
-							<CardItem cardBody>
-								<Image style={{ height: 200, flex: 1 }} source={{ uri: item.image }} />
-							</CardItem>
-							<CardItem style={[ cstyles.row, cstyles.flexBetweeen, cstyles.itemsCenter ]}>
-								<View style={[ cstyles.row, cstyles.itemsCenter ]}>
-									<TouchableOpacity>
-										<EvilIcons name="heart" size={20} color="gray" />
-									</TouchableOpacity>
-									<Text style={styles.storyText}>{item.like}</Text>
-								</View>
-								<View style={[ cstyles.row, cstyles.itemsCenter ]}>
-									<TouchableOpacity>
-										<EvilIcons name="eye" size={20} color="gray" />
-									</TouchableOpacity>
-									<Text style={styles.storyText}>{item.views}</Text>
-								</View>
-								<View style={[ cstyles.row, cstyles.itemsCenter ]}>
-									<TouchableOpacity>
-										<EvilIcons name="location" size={20} color="gray" />
-									</TouchableOpacity>
-									<Text style={styles.storyText}>{item.location}</Text>
-								</View>
-							</CardItem>
-						</Card>
-					)}
-				/>
+								<Text style={styles.storyText}>{item.like}</Text>
+							</View>
+							<View style={[ cstyles.row, cstyles.itemsCenter ]}>
+								<TouchableOpacity>
+									<EvilIcons name="eye" size={20} color="gray" />
+								</TouchableOpacity>
+								<Text style={styles.storyText}>{item.views}</Text>
+							</View>
+							<View style={[ cstyles.row, cstyles.itemsCenter ]}>
+								<TouchableOpacity>
+									<EvilIcons name="location" size={20} color="gray" />
+								</TouchableOpacity>
+								<Text style={styles.storyText}>{item.location}</Text>
+							</View>
+						</CardItem>
+					</Card>
+				)}
+			/>
 			</View>
 		</Fragment>
 	);

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { View, Header, Left, Body, Text } from 'native-base';
+import { View, Header, Left, Body, Text, Right } from 'native-base';
 import { StyleSheet } from 'react-native';
 import cstyles from '../../constants/cstyles';
 import { Entypo } from '@expo/vector-icons';
@@ -11,7 +11,7 @@ function PricePlan({ navigation }) {
 	return (
 		<Fragment>
 			<View style={cstyles.container}>
-				<Header noShadow style={{ backgroundColor: 'transparent' }}>
+				<Header noShadow style={{ backgroundColor: 'transparent',borderBottomWidth: 0  }}>
 					<Left>
 						<TouchableOpacity onPress={() => navigation.goBack()}>
 							<Entypo name="chevron-small-left" size={24} color="black" />
@@ -20,6 +20,7 @@ function PricePlan({ navigation }) {
 					<Body>
 						<Text style={styles.mainText}>Price Plan</Text>
 					</Body>
+					<Right/>
 				</Header>
 				<View style={[ cstyles.container, cstyles.padder ]}>
 					<View style={[ cstyles.row, cstyles.flexBetweeen ]}>

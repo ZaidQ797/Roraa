@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, View, Picker } from 'react-native';
+import { Image, Platform, StyleSheet, Text, View } from 'react-native';
+import {Picker} from 'native-base';
 import cstyles from '../constants/cstyles';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 const PickerUnderLineIcon = ({ placeholder, icon, value, onValueChange, pickerItems }) => {

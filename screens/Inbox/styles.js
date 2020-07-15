@@ -25,14 +25,14 @@ export default StyleSheet.create({
 		flex: 1,
 		backgroundColor: 'white',
 		height: 40,
-		paddingHorizontal: 10
+		paddingHorizontal: 10,
 	},
 	HeaderIcon: {
 		marginLeft: 20
 	},
 	padding: {
 		paddingLeft: 20,
-		paddingRight: 20
+		paddingRight: 20,
 	},
 	listContainer: {
 		backgroundColor: 'white',

@@ -14,6 +14,7 @@ export default class Personal extends React.Component {
 	render() {
 		const { navigation } = this.props;
 		return (
+			<ScrollView>
 			<View style={[ cstyles.container, cstyles.padder, cstyles.itemsCenter, { paddingBottom: 50 } ]}>
 				{/* // Background Linear Gradient */}
 
@@ -37,11 +38,11 @@ export default class Personal extends React.Component {
 							<ButtonGradient
 								text="REGISTER"
 								style={{ marginTop: 20 }}
-								onPress={() => navigation.navigate('Confirmation')}
+								onPress={() => navigation.navigate('Phone')}
 							/>
 						</View>
 						<TouchableOpacity
-							style={[ cstyles.button, cstyles.row, { height: 10 } ]}
+							style={[ cstyles.row ]}
 							onPress={() => navigation.navigate('Login')}
 						>
 							<Text style={cstyles.linkDarkText}>Already have an account?</Text>
@@ -49,22 +50,8 @@ export default class Personal extends React.Component {
 						</TouchableOpacity>
 					</View>
 				</View>
-
-				{/* <View style={cstyles.bottomFooter}>
-
-
-
-
-                    <TouchableOpacity style={[cstyles.button, cstyles.roundEdgeButton]}
-                        onPress={() => {
-                            navigation.navigate("OnBoarding")
-                        }}
-                    >
-                        <Text style={cstyles.buttonText}>GET STARTED</Text>
-                    </TouchableOpacity>
-                 
-                </View> */}
 			</View>
+			</ScrollView>
 		);
 	}
 }

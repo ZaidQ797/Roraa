@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
-import { StyleSheet, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { EvilIcons, AntDesign } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import cstyles from '../../constants/cstyles';
@@ -45,7 +44,7 @@ function NotificationCard({ image, name, time, type, onPress }) {
 						end={[ 0.5, 0.5 ]}
 						style={styles.rightIcon}
 					>
-						<Right style={[ styles.noBorder, styles.rightIcon ]}>
+						<Right style={[ styles.noBorder ]}>
 							{type === 'location' ? (
 								<EvilIcons name="location" size={24} color="white" />
 							) : type === 'download' ? (
@@ -89,7 +88,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		alignSelf: 'center',
-		borderTopLeftRadius: 30,
-		borderBottomLeftRadius: 30
+		borderTopLeftRadius: 35,
+		borderBottomLeftRadius: 35,
 	}
 });
