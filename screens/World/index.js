@@ -15,7 +15,7 @@ import {Entypo} from "@expo/vector-icons";
 import Colors from "../../constants/Colors";
 
 function Profile(props) {
-	const [ actibeTab, setActiveTab ] = useState(0);
+	const [ actibeTab, setActiveTab ] = useState(props.route.params.tab);
 	return (
 		<Fragment>
 			<SafeAreaView style={[ cstyles.container, cstyles.bg_white ]}>
@@ -30,6 +30,7 @@ function Profile(props) {
 				</Header>
 				<Tabs
 					tabBarBackgroundColor="transparent"
+					initialPage={props.route.params.tab || 0}
 					tabBarActiveTextColor="red"
 					renderTabBar={()=> <ScrollableTab />}
 					tabBarUnderlineStyle={{ backgroundColor: Colors.secondryGradient, height: 2 }}

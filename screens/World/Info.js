@@ -70,7 +70,7 @@ function Info({navigation}) {
 			<View style={[ cstyles.boxShadow, cstyles.padder, styles.br_10 ]}>
 				<View style={[ cstyles.row, cstyles.itemsCenter, cstyles.flexBetweeen ]}>
 					<Text style={styles.font_18}>My Story</Text>
-					<TouchableOpacity style={styles.iconButton}>
+					<TouchableOpacity style={styles.iconButton} onPress={()=> navigation.navigate("AddStory")}>
 						<MaterialIcons name="edit" size={15} color="white" />
 					</TouchableOpacity>
 				</View>

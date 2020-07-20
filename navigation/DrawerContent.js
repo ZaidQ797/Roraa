@@ -31,11 +31,19 @@ function DrawerContent(props) {
 					</Drawer.Section>
 					<List.Section style={styles.sectionStyle}>
 						<List.Accordion style={styles.listStyle} titleStyle={styles.labelStyle}  title="Profile">
-							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle}  title="Info" onPress={() => props.navigation.navigate('World')} />
-							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="World" onPress={() => props.navigation.navigate('World')} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle}  title="Info" onPress={() => props.navigation.navigate('World', {
+								tab: 0
+							})} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="World" onPress={() => props.navigation.navigate('World', {
+								tab: 1
+							})} />
 							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Story" onPress={() => props.navigation.navigate('Story')} />
-							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Show" onPress={() => props.navigation.navigate('World')} />
-							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Roraa Gold" onPress={() => props.navigation.navigate('World')} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Show" onPress={() => props.navigation.navigate('World', {
+								tab:2
+							})} />
+							<List.Item style={styles.itemStyle} titleStyle={styles.labelStyle} title="Roraa Gold" onPress={() => props.navigation.navigate('World', {
+								tab: 3
+							})} />
 						</List.Accordion>
 					</List.Section>
 					<List.Section style={styles.sectionStyle}>

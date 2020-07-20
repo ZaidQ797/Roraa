@@ -23,6 +23,7 @@ import WorldScreen from './screens/World';
 import AddGoalScreen from './screens/AddGoal';
 import AddWorldScreen from './screens/AddWorld';
 import AddTalentScreen from './screens/AddTalent';
+import AddStoryScreen from './screens/AddStory';
 import AddInterestScreen from './screens/AddInterest';
 import SharingScreen from './screens/Sharing';
 import RatingScreen from './screens/RatingCircle';
@@ -36,7 +37,7 @@ import ChatScreen from './screens/Inbox/Chat';
 import DiscoverScreen from './screens/Discover';
 import StoryScreen from './screens/Story';
 
-import CurrentScreen from './screens/Phone';
+import CurrentScreen from './screens/AddStory';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
@@ -88,6 +89,7 @@ export default class App extends React.Component {
 							<Stack.Screen name="World" component={WorldScreen} />
 							<Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
 							<Stack.Screen name="AddGoal" component={AddGoalScreen} />
+							<Stack.Screen name="AddStory" component={AddStoryScreen} />
 							<Stack.Screen name="AddTalent" component={AddTalentScreen} />
 							<Stack.Screen name="AddWorld" component={AddWorldScreen} />
 							<Stack.Screen name="AddInterest" component={AddInterestScreen} />

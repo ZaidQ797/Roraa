@@ -25,7 +25,7 @@ function RoraaGold({ navigation }) {
 				onPress={() => navigation.navigate('Score')}
 			>
 				<View>
-					<Text style={[ styles.boldText, { color: 'black' } ]}>Joy</Text>
+					<Text style={[ styles.heading ]}>Score</Text>
 					<Text style={[ styles.regularText, { color: '#aaa' } ]}>looking at other people score</Text>
 				</View>
 				<View style={[ cstyles.container, cstyles.itemsEnd, cstyles.flexCenter ]}>
@@ -37,7 +37,7 @@ function RoraaGold({ navigation }) {
 				onPress={() => navigation.navigate('Rating')}
 			>
 				<View>
-					<Text style={[ styles.boldText, { color: 'black' } ]}>Joy</Text>
+					<Text style={[ styles.heading ]}>Rating</Text>
 					<Text style={[ styles.regularText, { color: '#aaa' } ]}>looking at my rating profile</Text>
 				</View>
 				<View style={[ cstyles.container, cstyles.itemsEnd, cstyles.flexCenter ]}>
@@ -49,7 +49,7 @@ function RoraaGold({ navigation }) {
 				onPress={() => navigation.navigate('Visitor')}
 			>
 				<View>
-					<Text style={[ styles.boldText, { color: 'black' } ]}>Joy</Text>
+					<Text style={[ styles.heading ]}>Profile Visitors</Text>
 					<Text style={[ styles.regularText, { color: '#aaa' } ]}>who view my profile</Text>
 				</View>
 				<View style={[ cstyles.container, cstyles.itemsEnd, cstyles.flexCenter ]}>
@@ -72,6 +72,10 @@ const styles = StyleSheet.create({
 		fontSize: 30,
 		fontWeight: 'bold',
 		color: 'white'
+	},
+	heading:{
+		fontSize: 22,
+		fontWeight: 'bold',
 	},
 	regularText: {
 		color: 'white',

@@ -38,7 +38,7 @@ function AddGoal({ navigation }) {
 							<MaterialCommunityIcons name="arch" size={20} color="#f5656b" />
 							<Input multiline placeholder="write something" />
 						</Item>
-						<View style={(cstyles.my_20, { marginBottom: 30 })}>
+						<View style={[cstyles.my_20, { marginBottom: 30 }]}>
 							<TouchableOpacity style={styles.buttonStyle}>
 								<Text style={styles.butnText}>Done</Text>
 							</TouchableOpacity>

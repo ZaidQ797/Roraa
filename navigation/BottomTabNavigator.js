@@ -9,8 +9,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/Home';
 import InboxScreen from '../screens/Inbox';
 import ProfileScreen from '../screens/Profile';
+import WebSearchScreen from '../screens/WebSearch';
 import CameraScreen from '../screens/Camera';
 import NotificationScreen from '../screens/Notification';
+import {Linking} from "react-native";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -39,10 +41,17 @@ function BottomTabNavigator({ navigation }) {
 					}}
 				/>
 				<Tab.Screen
-					name="Profile"
-					component={ProfileScreen}
+					name="Web"
+					component={WebSearchScreen}
+					listeners={{
+						tabPress: e => {
+							e.preventDefault();
+							const URL = "https://www.google.com/";
+							Linking.openURL(URL).catch((err) => console.error('An error occurred', err));
+						}
+					}}
 					options={{
-						tabBarLabel: 'Profile',
+						tabBarLabel: 'Web Search',
 						tabBarIcon: () => <MaterialCommunityIcons name="search-web" size={24} color="white" />
 					}}
 				/>
