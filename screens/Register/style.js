@@ -11,9 +11,24 @@ export default StyleSheet.create({
         color: Colors.dark,
         marginTop: 20
     },
+    container: {
+        marginTop: 30
+    },
+
+    activeText: {
+        color: Colors.secondryGradient,
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+    inActiveText: {
+        color: "black",
+        fontSize: 16,
+        fontWeight: 'bold',
+
+    },
     topContainer: {
         // top: -150,
-        width: Layout.window.width, 
+        width: Layout.window.width,
         // justifyContent: "center",
         // alignItems: "center"
     },

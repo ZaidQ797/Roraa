@@ -17,7 +17,7 @@ const PickerUnderLineIcon = ({ placeholder, icon, value, onValueChange, pickerIt
 			>
 				<Picker.Item color="lightgray" label={placeholder} value="" />
 				{pickerItems &&
-					pickerItems.map((item) => <Picker.Item key={item} color="lightgray" label={item} value={item} />)}
+					pickerItems.map((item) => <Picker.Item key={item} color="black" label={item} value={item} />)}
 			</Picker>
 		</View>
 	);

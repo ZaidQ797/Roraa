@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, Dimensions, TextInput } from 'react-native';
 import cstyles from '../constants/cstyles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-const InputUnderLineIcon = ({ placeholder, icon, secureTextEntry, value, onChangeText }) => {
+const InputUnderLineIcon = ({ placeholder, icon, secureTextEntry,autoCapitalize, value, onChangeText }) => {
     return (
         <View style={cstyles.inputUnderLineContainer}>
             <View style={cstyles.inputUnderLineIconContainer}>
@@ -14,8 +14,9 @@ const InputUnderLineIcon = ({ placeholder, icon, secureTextEntry, value, onChang
                 style={cstyles.inputUnderLineINPUT}
                 placeholder={placeholder}
                 secureTextEntry={secureTextEntry}
+                autoCapitalize={autoCapitalize}
                 value={value}
-                onChangeText={(val) => onChangeText && onChangeText(val)} />
+                onChangeText={(val) =>{ onChangeText && onChangeText(val)}} />
         </View>
     )
 };

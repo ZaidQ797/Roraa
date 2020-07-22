@@ -11,7 +11,10 @@ export default StyleSheet.create({
 		alignItems: 'center'
 	},
 	flexCenter: {
-		justifyContent: 'center'
+		flex: 1, justifyContent: 'center', alignItems: 'center'
+	},
+	textCenter: {
+		textAlign: 'center'
 	},
 	itemsEnd: {
 		alignItems: 'flex-end'
@@ -27,7 +30,7 @@ export default StyleSheet.create({
 
 		elevation: 2,
 		zIndex: 999,
-		backgroundColor : "#0000"
+		backgroundColor: "#0000"
 	},
 	flexWrap: {
 		flexWrap: 'wrap'
@@ -287,5 +290,12 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		borderRadius: 100,
 		backgroundColor: '#e98180'
-	}
+	},
+
+	errorText: {
+		paddingLeft: 25,
+		fontSize: 12,
+		color: "red"
+
+	},
 });

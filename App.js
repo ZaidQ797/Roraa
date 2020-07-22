@@ -11,7 +11,6 @@ import DrawerNavigator from './navigation/DrawerNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
 import Splash from './screens/Splash';
 import OnBoarding from './screens/OnBoarding';
-import Register from './screens/Register';
 import Login from './screens/Login';
 import ForgotPassword from './screens/ForgotPassword';
 import ResetPassword from './screens/ResetPassword';
@@ -36,8 +35,13 @@ import ScoreScreen from './screens/Score';
 import ChatScreen from './screens/Inbox/Chat';
 import DiscoverScreen from './screens/Discover';
 import StoryScreen from './screens/Story';
-
 import CurrentScreen from './screens/AddStory';
+
+
+import { PersistGate } from "redux-persist/es/integration/react";
+import { Provider, connect } from "react-redux";
+import { store, persistor } from "./_helpers/store";
+import Register from './screens/Register';
 
 var deviceWidth = Dimensions.get('window').width;
 var deviceHeight = Dimensions.get('window').height;
@@ -67,43 +71,47 @@ export default class App extends React.Component {
 				</Root>
 			);
 		} else {
-			return (
-				<View style={styles.container}>
-					{Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
-					<NavigationContainer>
-						<Stack.Navigator headerMode="none" initialRouteName="Splash">
-							<Stack.Screen name="Splash" component={Splash} />
-							<Stack.Screen name="OnBoarding" component={OnBoarding} />
-							<Stack.Screen name="Register" component={Register} />
-							<Stack.Screen name="Phone" component={PhoneScreen} />
-							<Stack.Screen name="Confirmation" component={ConfirmationScreen} />
-							<Stack.Screen name="Login" component={Login} />
-							<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-							<Stack.Screen name="ResetPassword" component={ResetPassword} />
-							<Stack.Screen name="Styles" component={SelectStylesScreen} />
-							<Stack.Screen name="Root" children={DrawerNavigator} />
-							<Stack.Screen name="Messages" component={MessagesScreen} />
-							<Stack.Screen name="Setting" component={SettingScreen} />
-							<Stack.Screen name="Chat" component={ChatScreen} />
-							<Stack.Screen name="Share" component={SharingScreen} />
-							<Stack.Screen name="World" component={WorldScreen} />
-							<Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
-							<Stack.Screen name="AddGoal" component={AddGoalScreen} />
-							<Stack.Screen name="AddStory" component={AddStoryScreen} />
-							<Stack.Screen name="AddTalent" component={AddTalentScreen} />
-							<Stack.Screen name="AddWorld" component={AddWorldScreen} />
-							<Stack.Screen name="AddInterest" component={AddInterestScreen} />
-							<Stack.Screen name="Rating" component={RatingScreen} />
-							<Stack.Screen name="Interest" component={InterestScreen} />
-							<Stack.Screen name="PricePlan" component={PricePlanScreen} />
-							<Stack.Screen name="Visitor" component={VisitorsScreen} />
-							<Stack.Screen name="Score" component={ScoreScreen} />
-							<Stack.Screen name="Discover" component={DiscoverScreen} />
-							<Stack.Screen name="Story" component={StoryScreen} />
+			return ( 
+				<Provider store={store}> 
+					<PersistGate loading={null} persistor={persistor}>
+						<View style={styles.container}>
+							{Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
+							<NavigationContainer>
+								<Stack.Navigator headerMode="none" initialRouteName="Splash">
+									<Stack.Screen name="Splash" component={Splash} />
+									<Stack.Screen name="OnBoarding" component={OnBoarding} />
+									<Stack.Screen name="Register" component={Register} />
+									<Stack.Screen name="Phone" component={PhoneScreen} />
+									<Stack.Screen name="Confirmation" component={ConfirmationScreen} />
+									<Stack.Screen name="Login" component={Login} />
+									<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+									<Stack.Screen name="ResetPassword" component={ResetPassword} />
+									<Stack.Screen name="Styles" component={SelectStylesScreen} />
+									<Stack.Screen name="Root" children={DrawerNavigator} />
+									<Stack.Screen name="Messages" component={MessagesScreen} />
+									<Stack.Screen name="Setting" component={SettingScreen} />
+									<Stack.Screen name="Chat" component={ChatScreen} />
+									<Stack.Screen name="Share" component={SharingScreen} />
+									<Stack.Screen name="World" component={WorldScreen} />
+									<Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
+									<Stack.Screen name="AddGoal" component={AddGoalScreen} />
+									<Stack.Screen name="AddStory" component={AddStoryScreen} />
+									<Stack.Screen name="AddTalent" component={AddTalentScreen} />
+									<Stack.Screen name="AddWorld" component={AddWorldScreen} />
+									<Stack.Screen name="AddInterest" component={AddInterestScreen} />
+									<Stack.Screen name="Rating" component={RatingScreen} />
+									<Stack.Screen name="Interest" component={InterestScreen} />
+									<Stack.Screen name="PricePlan" component={PricePlanScreen} />
+									<Stack.Screen name="Visitor" component={VisitorsScreen} />
+									<Stack.Screen name="Score" component={ScoreScreen} />
+									<Stack.Screen name="Discover" component={DiscoverScreen} />
+									<Stack.Screen name="Story" component={StoryScreen} />
 
-						</Stack.Navigator>
-					</NavigationContainer>
-				</View>
+								</Stack.Navigator>
+							</NavigationContainer>
+						</View>
+					</PersistGate>
+				</Provider>
 			);
 		}
 	}
