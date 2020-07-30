@@ -10,14 +10,14 @@ import appjson from '../../app.json';
 
 export default class Splash extends React.Component {
 	render() {
-		const { navigation } = this.props;
+		const { navigation, token } = this.props;
 		return (
-			<View style={[ cstyles.container, cstyles.center ]}>
+			<View style={[cstyles.container, cstyles.center]}>
 				{/* // Background Linear Gradient */}
 				<LinearGradient
-					colors={[ Colors.primaryGradient, Colors.secondryGradient ]}
-					start={[ 0.1, 0.1 ]}
-					end={[ 0.7, 0.7 ]}
+					colors={[Colors.primaryGradient, Colors.secondryGradient]}
+					start={[0.1, 0.1]}
+					end={[0.7, 0.7]}
 					style={{ position: 'absolute', left: 0, right: 0, top: 0, height: Layout.window.height }}
 				/>
 				<Image source={require('./../../assets/images/icon.png')} style={cstyles.imageLogo} />
@@ -26,7 +26,7 @@ export default class Splash extends React.Component {
 
 				<View style={cstyles.bottomFooter}>
 					<TouchableOpacity
-						style={[ cstyles.button, cstyles.roundEdgeButton ]}
+						style={[cstyles.button, cstyles.roundEdgeButton]}
 						onPress={() => {
 							navigation.navigate('Register');
 						}}

@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View, Dimensions } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, Dimensions, Text } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import { Root } from 'native-base';
@@ -71,41 +71,101 @@ export default class App extends React.Component {
 				</Root>
 			);
 		} else {
-			return ( 
-				<Provider store={store}> 
+			return (
+				<Provider store={store}>
 					<PersistGate loading={null} persistor={persistor}>
 						<View style={styles.container}>
 							{Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
 							<NavigationContainer>
 								<Stack.Navigator headerMode="none" initialRouteName="Splash">
-									<Stack.Screen name="Splash" component={Splash} />
-									<Stack.Screen name="OnBoarding" component={OnBoarding} />
-									<Stack.Screen name="Register" component={Register} />
-									<Stack.Screen name="Phone" component={PhoneScreen} />
-									<Stack.Screen name="Confirmation" component={ConfirmationScreen} />
-									<Stack.Screen name="Login" component={Login} />
-									<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-									<Stack.Screen name="ResetPassword" component={ResetPassword} />
-									<Stack.Screen name="Styles" component={SelectStylesScreen} />
-									<Stack.Screen name="Root" children={DrawerNavigator} />
-									<Stack.Screen name="Messages" component={MessagesScreen} />
-									<Stack.Screen name="Setting" component={SettingScreen} />
-									<Stack.Screen name="Chat" component={ChatScreen} />
-									<Stack.Screen name="Share" component={SharingScreen} />
-									<Stack.Screen name="World" component={WorldScreen} />
-									<Stack.Screen name="ProfileDetail" component={ProfileDetailScreen} />
-									<Stack.Screen name="AddGoal" component={AddGoalScreen} />
-									<Stack.Screen name="AddStory" component={AddStoryScreen} />
-									<Stack.Screen name="AddTalent" component={AddTalentScreen} />
-									<Stack.Screen name="AddWorld" component={AddWorldScreen} />
-									<Stack.Screen name="AddInterest" component={AddInterestScreen} />
-									<Stack.Screen name="Rating" component={RatingScreen} />
-									<Stack.Screen name="Interest" component={InterestScreen} />
-									<Stack.Screen name="PricePlan" component={PricePlanScreen} />
-									<Stack.Screen name="Visitor" component={VisitorsScreen} />
-									<Stack.Screen name="Score" component={ScoreScreen} />
-									<Stack.Screen name="Discover" component={DiscoverScreen} />
-									<Stack.Screen name="Story" component={StoryScreen} />
+									<Stack.Screen name="Splash" >
+										{props => <Splash {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="OnBoarding" >
+										{props => <OnBoarding {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Register" >
+										{props => <Register {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Phone" >
+										{props => <PhoneScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Confirmation" >
+										{props => <ConfirmationScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Login" >
+										{props => <Login {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="ForgotPassword" >
+										{props => <ForgotPassword {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Styles" >
+										{props => <SelectStylesScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Root" >
+										{props => <DrawerNavigator {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Messages" >
+										{props => <MessagesScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Setting" >
+										{props => <SettingScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Chat" >
+										{props => <ChatScreen {...props} />}
+									</Stack.Screen>
+									
+									<Stack.Screen name="Share" >
+										{props => <SharingScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="World" >
+										{props => <WorldScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="ProfileDetail" >
+										{props => <ProfileDetailScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="AddGoal" >
+										{props => <AddGoalScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="AddStory" >
+										{props => <AddStoryScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="AddTalent" >
+										{props => <AddTalentScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="AddWorld" >
+										{props => <AddWorldScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="AddInterest" >
+										{props => <AddInterestScreen {...props} />}
+									</Stack.Screen>
+									<Stack.Screen name="Rating" >
+										{props => <RatingScreen {...props} />}
+									</Stack.Screen>
+
+									<Stack.Screen name="Interest" >
+										{props => <InterestScreen {...props} />}
+									</Stack.Screen>
+
+									<Stack.Screen name="PricePlan" >
+										{props => <PricePlanScreen {...props} />}
+									</Stack.Screen>
+
+									<Stack.Screen name="Visitor" >
+										{props => <VisitorsScreen {...props} />}
+									</Stack.Screen>
+
+									<Stack.Screen name="Score" >
+										{props => <ScoreScreen {...props} />}
+									</Stack.Screen>
+
+									<Stack.Screen name="Discover" >
+										{props => <DiscoverScreen {...props} />}
+									</Stack.Screen>
+
+									<Stack.Screen name="Story" >
+										{props => <StoryScreen {...props} />}
+									</Stack.Screen>
 
 								</Stack.Navigator>
 							</NavigationContainer>

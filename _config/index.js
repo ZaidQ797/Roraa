@@ -1,6 +1,6 @@
 const config = {
-    baseUrl: 'https://roraa-admin.herokuapp.com',   //production
-    // baseUrl: 'http://192.168.6.4:5000',   //local 
+    // baseUrl: 'https://roraa-admin.herokuapp.com',   //production
+    baseUrl: 'http://192.168.6.2:5000',   //local 
     socketHeader: {
         timeout: 10000, jsonp: false, transports: ['websocket'], autoConnect: true, agent: '-', pfx: '-', cert: '-', ca: '-', ciphers: '-', rejectUnauthorized: '-', perMessageDeflate: '-'
     },

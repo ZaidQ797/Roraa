@@ -7,9 +7,7 @@ export const userActions = {
 
         userService.login(email, password)
             .then(
-                res => {
-                    console.log(res);
-                    
+                res => {                    
                     resolve(res);
                     dispatch(success(res));
                 },
