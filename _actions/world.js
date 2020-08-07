@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../_config/base_url";
-import { GET_MY_WORLDS } from "./types";
+import { GET_MY_WORLDS, ADD_MY_WORLD } from "./types";
 
 //Local Types
 export const WORLDS_LOADING = "WORLDS_LOADING";
@@ -31,6 +31,31 @@ export const getWorlds = (params) => {
     }
   };
 };
+export const addWorld = (params) => {
+  console.log(params);
+  return async (dispatch) => {
+    dispatch(worldLoading());
+    try {
+      const res = await axios.post(
+        `${BASE_URL}/Authentication/addworld`,
+        params,
+        {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (res && res.data.status === false)
+        return dispatch(worldFailed(res.data));
+
+      dispatch(addWorldSuccess(res));
+    } catch (err) {
+      dispatch(worldFailed(err));
+    }
+  };
+};
 
 //helper Functions
 const worldLoading = () => ({
@@ -42,5 +67,9 @@ const worldFailed = (err) => ({
 });
 const getWorldSuccess = (res) => ({
   type: GET_MY_WORLDS,
+  payload: res,
+});
+const addWorldSuccess = (res) => ({
+  type: ADD_MY_WORLD,
   payload: res,
 });
