@@ -10,6 +10,9 @@ import {
   Text,
 } from "react-native";
 import * as Font from "expo-font";
+import * as firebase from "firebase";
+import { firebaseConfig } from "./_config/firebase_config";
+firebase.initializeApp(firebaseConfig);
 import { AppLoading } from "expo";
 import { Root } from "native-base";
 import useCachedResources from "./hooks/useCachedResources";
@@ -83,7 +86,7 @@ export default class App extends React.Component {
             <View style={styles.container}>
               {Platform.OS === "ios" && <StatusBar barStyle="dark-content" />}
               <NavigationContainer>
-                <Stack.Navigator headerMode="none" initialRouteName="Root">
+                <Stack.Navigator headerMode="none" initialRouteName="Splash">
                   <Stack.Screen name="Splash">
                     {(props) => <Splash {...props} />}
                   </Stack.Screen>
