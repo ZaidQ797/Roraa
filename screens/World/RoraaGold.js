@@ -1,0 +1,159 @@
+import React, { useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
+import cstyles from "../../constants/cstyles";
+import Colors from "../../constants/Colors";
+import { connect } from "react-redux";
+
+function RoraaGold({ navigation, profile }) {
+  return (
+    <ScrollView style={[cstyles.container, cstyles.padder]}>
+      <View style={[styles.TopContainer, cstyles.row, cstyles.flexBetweeen]}>
+        <View style={[cstyles.flexCenter, cstyles.px_20, { width: "50%" }]}>
+          <Text style={styles.boldText}>Roraa Gold</Text>
+          {/* <Text style={[styles.regularText]}>100 look up</Text>
+          <Text style={[styles.regularText]}>unlimited view</Text>
+          <Text style={styles.regularText}>100 score</Text> */}
+        </View>
+        <View style={[cstyles.flexCenter, cstyles.px_20, { width: "50%" }]}>
+          {/* <Text style={[styles.inlineText]}>9.99 $</Text> */}
+          <Text style={styles.boldText}>9.99 $</Text>
+          <Text style={styles.regularText}>/ month</Text>
+        </View>
+      </View>
+      {profile && profile[0].is_rora_gold === "Yes" ? (
+        <View>
+          <TouchableOpacity
+            style={[
+              Platform.OS === "ios" ? styles.smBoxIos : styles.smBox,
+              cstyles.row,
+              styles.box_1,
+              cstyles.boxShadow,
+            ]}
+            onPress={() => navigation.navigate("Score")}
+          >
+            <View>
+              <Text style={[styles.heading]}>Score</Text>
+              <Text style={[styles.regularText, { color: "#aaa" }]}>
+                looking at other people score
+              </Text>
+            </View>
+            <View
+              style={[cstyles.container, cstyles.itemsEnd, cstyles.flexCenter]}
+            >
+              {/* <Text style={{ color: Colors.tintColor }}>99</Text> */}
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              Platform.OS === "ios" ? styles.smBoxIos : styles.smBox,
+              cstyles.row,
+              styles.box_2,
+              cstyles.boxShadow,
+            ]}
+            onPress={() => navigation.navigate("Rating")}
+          >
+            <View>
+              <Text style={[styles.heading]}>Rating</Text>
+              <Text style={[styles.regularText, { color: "#aaa" }]}>
+                looking at other people rating
+              </Text>
+            </View>
+            <View
+              style={[cstyles.container, cstyles.itemsEnd, cstyles.flexCenter]}
+            >
+              {/* <Text style={{ color: Colors.secondryGradient }}>56</Text> */}
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              Platform.OS === "ios" ? styles.smBoxIos : styles.smBox,
+              cstyles.row,
+              styles.box_3,
+              cstyles.boxShadow,
+              { marginBottom: 50 },
+            ]}
+            onPress={() => navigation.navigate("Visitor")}
+          >
+            <View>
+              <Text style={[styles.heading]}>Profile Visitors</Text>
+              <Text style={[styles.regularText, { color: "#aaa" }]}>
+                who view my profile
+              </Text>
+            </View>
+            <View
+              style={[cstyles.container, cstyles.itemsEnd, cstyles.flexCenter]}
+            >
+              {/* <Text style={{ color: Colors.primaryGradient }}>unlimited</Text> */}
+            </View>
+          </TouchableOpacity>
+        </View>
+      ) : null}
+    </ScrollView>
+  );
+}
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    profile: state.authReducer.profile,
+  };
+};
+
+export default connect(mapStateToProps)(RoraaGold);
+
+const styles = StyleSheet.create({
+  TopContainer: {
+    backgroundColor: Colors.tintColor,
+    paddingVertical: 25,
+    borderRadius: 30,
+  },
+  boldText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "white",
+  },
+  heading: {
+    fontSize: 22,
+    fontWeight: "bold",
+  },
+  regularText: {
+    color: "white",
+    marginTop: 5,
+  },
+  inlineText: {
+    color: "white",
+    fontSize: 20,
+  },
+  smBox: {
+    marginVertical: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+  },
+  smBoxIos: {
+    marginVertical: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    borderWidth: 0.5,
+    borderColor: "lightgray",
+  },
+  box_1: {
+    borderRightWidth: 10,
+    borderRightColor: Colors.tintColor,
+  },
+  box_2: {
+    borderRightWidth: 10,
+    borderRightColor: Colors.secondryGradient,
+  },
+  box_3: {
+    borderRightWidth: 10,
+    borderRightColor: Colors.primaryGradient,
+  },
+});
