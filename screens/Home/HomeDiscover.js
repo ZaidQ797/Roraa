@@ -28,8 +28,6 @@ function HomeDiscover({ user, discovers, getDiscovers, navigation, getUser }) {
       .then((res) => {
         // setDiscov(discovers);
         setLoader(false);
-        
-
       })
       .catch((err) => {
         Alert.alert("Roraa", err.message);
@@ -74,13 +72,13 @@ function HomeDiscover({ user, discovers, getDiscovers, navigation, getUser }) {
             <View>
               {search !== ""
                 ? filterDis &&
-                filterDis.map((item, i) => (
-                  <DiscoverList item={item} key={i} navigation={navigation} />
-                ))
+                  filterDis.map((item, i) => (
+                    <DiscoverList item={item} key={i} navigation={navigation} />
+                  ))
                 : discovers &&
-                discovers.map((item, i) => (
-                  <DiscoverList item={item} key={i} navigation={navigation} />
-                ))}
+                  discovers.map((item, i) => (
+                    <DiscoverList item={item} key={i} navigation={navigation} />
+                  ))}
             </View>
           </View>
         </ScrollView>
@@ -88,11 +86,7 @@ function HomeDiscover({ user, discovers, getDiscovers, navigation, getUser }) {
       </View>
     );
   } else {
-    return (
-      <View style={[cstyles.bg_white, { flex: 1 }]}>
-        <Loader />
-      </View>
-    );
+    return <Loader />;
   }
 }
 

@@ -347,21 +347,7 @@ function Show({ shows, user, getShows, navigation, favShow, showViewCount }) {
       </View>
     );
   } else {
-    return (
-      <View
-        style={[
-          cstyles.bg_white,
-          {
-            flex: 1,
-            alignSelf: "center",
-            justifyContent: "center",
-            alighItems: "center",
-          },
-        ]}
-      >
-        <Loader />
-      </View>
-    );
+    <Loader />;
   }
 }
 

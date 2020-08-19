@@ -47,21 +47,28 @@ class Messages extends React.Component {
   }
 
   componentDidMount = () => {
-    // const interval = setInterval(() => {
-    // 	if (conversation && conversation.length > 0) {
-    // 		const data = new FormData();
-    // 		data.append("u_id", user.u_id)
-    // 		data.append("recv_id", chat_id)
-    // 		data.append("msg_id", conversation[conversation.length - 1].msg_id)
-    // 		new Promise((rsl, rej) => {
-    // 			get_new_msgs(data, rsl, rej)
-    // 		}).then(res => {
-    // 		})
-    // 			.catch((err) => {
-    // 			})
-    // 	}
-    // }, 1000);
-    // this.setState({ interval })
+    const {
+      user,
+      chat_id,
+      getConversation,
+      get_new_msgs,
+      conversation,
+    } = this.props;
+    const interval = setInterval(() => {
+      if (conversation && conversation.length > 0) {
+        this.getData();
+        // const data = new FormData();
+        // data.append("u_id", user.u_id);
+        // data.append("recv_id", chat_id);
+        // data.append("msg_id", conversation[conversation.length - 1].msg_id);
+        // new Promise((rsl, rej) => {
+        //   get_new_msgs(data, rsl, rej);
+        // })
+        //   .then((res) => {})
+        //   .catch((err) => {});
+      }
+    }, 1000);
+    this.setState({ interval });
     this.getData();
     this._unsubscribe = this.props.navigation.addListener("focus", () => {
       this.getData();
@@ -84,7 +91,9 @@ class Messages extends React.Component {
     new Promise((rsl, rej) => {
       getConversation(data, rsl, rej);
     })
-      .then((res) => {})
+      .then((res) => {
+        console.log("Hi there new message");
+      })
       .catch((err) => {});
   };
   sendMessageFun = () => {
@@ -152,6 +161,7 @@ class Messages extends React.Component {
           {/* <RecievedMessage message="Hey Hi Danya Bairstow" /> */}
           {/* <RecievedMessage message="Hi Danya, How's your days going?" time="10:50AM" showAvatar showTime /> */}
           {/* <Divider time="Tuseday, 10:50AM" /> */}
+
           {conversation &&
             conversation.length !== undefined &&
             conversation.map((item, i) => {
@@ -161,16 +171,18 @@ class Messages extends React.Component {
                     <RecievedMessage
                       message={item.content}
                       time={item.date}
+                      image={item.dp}
                       showTime
                     />
                   </View>
                 );
               } else {
                 return (
-                  <View key={i} style={{ marginBottom: 20 }}>
+                  <View key={i} style={{ marginBottom: 15 }}>
                     <SentMessage
                       message={item.content}
                       time={item.date}
+                      image={item.dp}
                       showTime
                     />
                   </View>

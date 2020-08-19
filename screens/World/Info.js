@@ -501,7 +501,9 @@ function Info({
           </View>
 
           <View>
-            <InfluanceBoard profile={profile} />
+            {profile.is_rora_gold === "Yes" && (
+              <InfluanceBoard profile={profile} />
+            )}
           </View>
           <View
             style={[

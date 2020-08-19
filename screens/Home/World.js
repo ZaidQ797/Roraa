@@ -138,21 +138,7 @@ function World({ user, getWorlds, worlds, insertworldviews }) {
       </View>
     );
   } else {
-    return (
-      <View
-        style={[
-          cstyles.bg_white,
-          {
-            flex: 1,
-            alignSelf: "center",
-            justifyContent: "center",
-            alighItems: "center",
-          },
-        ]}
-      >
-        <Loader />
-      </View>
-    );
+    return <Loader />;
   }
 }
 

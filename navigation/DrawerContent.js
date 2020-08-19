@@ -179,6 +179,7 @@ const mapStateToProps = (state, ownProps) => {
   console.log(state);
   return {
     user: state.authReducer.user,
+    profile: state.authReducer.profile,
     // worlds: state.homeReducer.worlds,
   };
 };
