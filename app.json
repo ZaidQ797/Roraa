@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "RORAA",
+    "slug": "roraa",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/logo_fill.png",
+    "scheme": "myapp",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "backgroundColor": "#F86383",
+      "resizeMode": "contain"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.roraa.io",
+      "buildNumber": "1.0.0",
+      "usesAppleSignIn": true
+    },
+    "android": {
+      "package": "com.roraa.io",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png"
+    },
+    "description": "Roraa is a platform empowered by people to build their reputation and express their ideas to the world and connect with people matter to you."
+  },
+  "slogan": "SOCIAL APP"
+}
