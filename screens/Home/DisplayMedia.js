@@ -47,7 +47,7 @@ const DisplayMedia = ({ navigation, route }) => {
                 onPress={() => {
                     setLoader(true)
                     video.file !== ""
-                        ? handleVideoClick(video.file, id)
+                        ? handleVideoClick(video.file, video.id)
                         : alert("Video not found");
                 }}
             >
