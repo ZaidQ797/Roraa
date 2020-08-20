@@ -1,5 +1,12 @@
 import React, { Fragment, useState } from "react";
-import { View, Text, StyleSheet, Dimensions, ScrollView, Alert } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  ScrollView,
+  Alert,
+} from "react-native";
 import cstyles from "../../constants/cstyles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { LiteCreditCardInput } from "react-native-credit-card-input";
@@ -16,8 +23,7 @@ function PriceBox({ item, index, navigation, user, purchase }) {
   const [loader, setLoader] = useState(false);
 
   const handlePurchase = () => {
-    alert(JSON.stringify(creditInfo.valid))
-    if (creditInfo && creditInfo.valid) {
+    if (creditInfo) {
       setLoader(true);
       const formData = new FormData();
       formData.append("u_id", user && user.u_id);
@@ -37,9 +43,8 @@ function PriceBox({ item, index, navigation, user, purchase }) {
         .finally(() => {
           setLoader(false);
         });
-    }
-    else {
-      Alert.alert('Roraa', 'Please enter credit card details.')
+    } else {
+      Alert.alert("Roraa", "Please enter credit card details.");
     }
   };
   return (
@@ -56,23 +61,23 @@ function PriceBox({ item, index, navigation, user, purchase }) {
               item === "basic"
                 ? styles.bg_basic
                 : item === "standard"
-                  ? styles.bg_standard
-                  : styles.bg_premium,
+                ? styles.bg_standard
+                : styles.bg_premium,
             ]}
           >
             <Text style={[styles.headerMain]}>
               {item === "basic"
                 ? "Basic"
                 : item === "standard"
-                  ? "Standard"
-                  : "Premium"}
+                ? "Standard"
+                : "Premium"}
             </Text>
             <Text style={[styles.headerSubtite, cstyles.mt_10]}>
               {item === "basic"
                 ? "9.99$ / month"
                 : item === "standard"
-                  ? "15.99$ / month"
-                  : "20.99$ / month"}
+                ? "15.99$ / month"
+                : "20.99$ / month"}
             </Text>
           </View>
           <View style={[styles.cardBody, cstyles.pt_15]}>
@@ -83,8 +88,8 @@ function PriceBox({ item, index, navigation, user, purchase }) {
                   item === "basic"
                     ? styles.border_basic
                     : item === "standard"
-                      ? styles.border_standard
-                      : styles.border_premium,
+                    ? styles.border_standard
+                    : styles.border_premium,
                 ]}
               />
               <Text style={[styles.bodyText, cstyles.ml_10]}>
@@ -98,8 +103,8 @@ function PriceBox({ item, index, navigation, user, purchase }) {
                   item === "basic"
                     ? styles.border_basic
                     : item === "standard"
-                      ? styles.border_standard
-                      : styles.border_premium,
+                    ? styles.border_standard
+                    : styles.border_premium,
                 ]}
               />
               <Text style={[styles.bodyText, cstyles.ml_10]}>
@@ -113,8 +118,8 @@ function PriceBox({ item, index, navigation, user, purchase }) {
                   item === "basic"
                     ? styles.border_basic
                     : item === "standard"
-                      ? styles.border_standard
-                      : styles.border_premium,
+                    ? styles.border_standard
+                    : styles.border_premium,
                 ]}
               />
               <Text style={[styles.bodyText, cstyles.ml_10]}>
@@ -127,7 +132,10 @@ function PriceBox({ item, index, navigation, user, purchase }) {
             <Text style={[styles.bodyText, cstyles.ml_10]}>
               Enter Credit info
             </Text>
-            <LiteCreditCardInput value={creditInfo} onChange={(change) => setCredit(change)} />
+            <LiteCreditCardInput
+              value={creditInfo}
+              onChange={(change) => setCredit(change)}
+            />
             <TouchableOpacity
               onPress={handlePurchase}
               style={[
@@ -135,8 +143,8 @@ function PriceBox({ item, index, navigation, user, purchase }) {
                 item === "basic"
                   ? styles.bg_basic
                   : item === "standard"
-                    ? styles.bg_standard
-                    : styles.bg_premium,
+                  ? styles.bg_standard
+                  : styles.bg_premium,
                 { marginTop: 30 },
               ]}
             >

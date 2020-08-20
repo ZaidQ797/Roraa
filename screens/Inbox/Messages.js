@@ -98,6 +98,7 @@ class Messages extends React.Component {
   };
   sendMessageFun = () => {
     const { user, chat_id, sendMessage } = this.props;
+
     const { content } = this.state;
     if (content.length == 0) {
       return true;
