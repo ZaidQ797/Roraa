@@ -91,10 +91,10 @@ const sendMessage = (data, rsl, rej) => {
       .then((res) => {
         console.log(res);
         if (res.data.status == true) {
-          dispatch({
-            type: "SEND_MESSAGES",
-            msg: [res.data.data],
-          });
+          // dispatch({
+          //   type: "SEND_MESSAGES",
+          //   msg: [res.data.data],
+          // });
           rsl(res.data.data);
         } else {
           rej(res.data);

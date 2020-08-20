@@ -67,7 +67,7 @@ class Messages extends React.Component {
         //   .then((res) => {})
         //   .catch((err) => {});
       }
-    }, 1000);
+    }, 2000);
     this.setState({ interval });
     this.getData();
     this._unsubscribe = this.props.navigation.addListener("focus", () => {

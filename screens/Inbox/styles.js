@@ -116,7 +116,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.secondryGradient,
     fontSize: 14,
     color: "white",
-    minHeight: 50,
+    // minHeight: 50,
     borderRadius: 10,
   },
   hideTime: {
@@ -124,7 +124,7 @@ export default StyleSheet.create({
   },
   messageFooter: {
     padding: 10,
-    height: 75,
+    height: 60,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
   },

@@ -15,14 +15,14 @@ export default function (state = initialState, action) {
         ...state,
         conversation: action.msg,
       };
-    case "SEND_MESSAGES":
-      action.msg.map((item) => {
-        state.conversation.push(item);
-      });
-      return {
-        ...state,
-        message: "1",
-      };
+    // case "SEND_MESSAGES":
+    //   action.msg.map((item) => {
+    //     state.conversation.push(item);
+    //   });
+    //   return {
+    //     ...state,
+    //     message: "1",
+    //   };
     case "REMOVE_MESSAGES":
       return {
         ...state,
