@@ -56,46 +56,50 @@ class Confirm extends React.Component {
       goals,
       talents,
     } = this.props.route.params;
-    const newImageUri = image && "file:///" + image.split("file:/").join("");
-    const params = new FormData();
-    params.append("title", title);
-    params.append("apple_url", appleUrl);
-    // params.append("file", {
-    //   uri: newImageUri,
-    //   type: mime.getType(newImageUri),
-    //   name: newImageUri.split("/").pop(),
-    // });
-    // params.append("android_url", androidUrl);
-    // params.append("min_budget", minBudget);
-    // params.append("max_budget", maxBudget);
-    // params.append("total_installs", totalInstalls);
-    // params.append("time", time);
-    // params.append("age", age);
-    // params.append("gender", gender);
-    // params.append("country", country);
-    // params.append("device", device);
-    // params.append("personality[]", personality);
-    // params.append("goals[]", goals);
-    // params.append("talents[]", talents);
-    // params.append("u_id", this.props.user && this.props.user.u_id);
-    // params.append("keywords[]", keywords);
-    // params.append("languages[]", languages);
-    // params.append("interest[]", interests);
-    new Promise((rsl, rej) => {
-      this.setState({ loader: true }, () => {
-        this.props.newAds(params, rsl, rej);
-      });
-    })
-      .then((res) => {
-        this.setState({ loader: false }, () => {
-          this.props.navigation.navigate("Success");
+    if (this.state.creditInfo) {
+      const newImageUri = image && "file:///" + image.split("file:/").join("");
+      const params = new FormData();
+      params.append("title", title);
+      params.append("apple_url", appleUrl);
+      // params.append("file", {
+      //   uri: newImageUri,
+      //   type: mime.getType(newImageUri),
+      //   name: newImageUri.split("/").pop(),
+      // });
+      // params.append("android_url", androidUrl);
+      // params.append("min_budget", minBudget);
+      // params.append("max_budget", maxBudget);
+      // params.append("total_installs", totalInstalls);
+      // params.append("time", time);
+      // params.append("age", age);
+      // params.append("gender", gender);
+      // params.append("country", country);
+      // params.append("device", device);
+      // params.append("personality[]", personality);
+      // params.append("goals[]", goals);
+      // params.append("talents[]", talents);
+      // params.append("u_id", this.props.user && this.props.user.u_id);
+      // params.append("keywords[]", keywords);
+      // params.append("languages[]", languages);
+      // params.append("interest[]", interests);
+      new Promise((rsl, rej) => {
+        this.setState({ loader: true }, () => {
+          this.props.newAds(params, rsl, rej);
         });
       })
-      .catch((err) => {
-        this.setState({ loader: false }, () => {
-          Alert.alert("Roraa", err.message);
+        .then((res) => {
+          this.setState({ loader: false }, () => {
+            this.props.navigation.navigate("Success");
+          });
+        })
+        .catch((err) => {
+          this.setState({ loader: false }, () => {
+            Alert.alert("Roraa", err.message);
+          });
         });
-      });
+    } else {
+      Alert.alert("Roraa", "Please enter credit card details.");
+    }
   };
   render() {
     const {
