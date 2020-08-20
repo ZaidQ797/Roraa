@@ -347,7 +347,7 @@ function Show({ shows, user, getShows, navigation, favShow, showViewCount }) {
       </View>
     );
   } else {
-    <Loader />;
+    return <Loader />;
   }
 }
 

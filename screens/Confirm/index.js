@@ -56,7 +56,16 @@ class Confirm extends React.Component {
       goals,
       talents,
     } = this.props.route.params;
-    if (this.state.creditInfo) {
+    const { creditInfo } = this.state;
+    if (!creditInfo) {
+      alert("Kindly Enter credit card values");
+    } else if (creditInfo && creditInfo.values.number === "") {
+      Alert.alert("Roraa", "Kindly enter credit card no");
+    } else if (creditInfo && creditInfo.values.expiry === "") {
+      Alert.alert("Roraa", "Kindly enter credit card expiry");
+    } else if (creditInfo && creditInfo.values.cvc === "") {
+      Alert.alert("Roraa", "Kindly enter credit card cvc");
+    } else {
       const newImageUri = image && "file:///" + image.split("file:/").join("");
       const params = new FormData();
       params.append("title", title);
@@ -97,8 +106,6 @@ class Confirm extends React.Component {
             Alert.alert("Roraa", err.message);
           });
         });
-    } else {
-      Alert.alert("Roraa", "Please enter credit card details.");
     }
   };
   render() {

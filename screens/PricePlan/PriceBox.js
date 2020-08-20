@@ -19,11 +19,19 @@ import Loader from "../../components/Loader";
 import { purchase } from "../../_actions/home";
 
 function PriceBox({ item, index, navigation, user, purchase }) {
-  const [creditInfo, setCredit] = useState("");
+  const [creditInfo, setCredit] = useState(null);
   const [loader, setLoader] = useState(false);
 
   const handlePurchase = () => {
-    if (creditInfo) {
+    if (!creditInfo) {
+      alert("Kindly Enter credit card values");
+    } else if (creditInfo && creditInfo.values.number === "") {
+      Alert.alert("Roraa", "Kindly enter credit card no");
+    } else if (creditInfo && creditInfo.values.expiry === "") {
+      Alert.alert("Roraa", "Kindly enter credit card expiry");
+    } else if (creditInfo && creditInfo.values.cvc === "") {
+      Alert.alert("Roraa", "Kindly enter credit card cvc");
+    } else {
       setLoader(true);
       const formData = new FormData();
       formData.append("u_id", user && user.u_id);
@@ -43,8 +51,6 @@ function PriceBox({ item, index, navigation, user, purchase }) {
         .finally(() => {
           setLoader(false);
         });
-    } else {
-      Alert.alert("Roraa", "Please enter credit card details.");
     }
   };
   return (
