@@ -116,7 +116,7 @@ export default StyleSheet.create({
     backgroundColor: Colors.secondryGradient,
     fontSize: 14,
     color: "white",
-    // minHeight: 50,
+    minHeight: 50,
     borderRadius: 10,
   },
   hideTime: {
